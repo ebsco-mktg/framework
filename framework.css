@@ -1,0 +1,253 @@
+/*
+    ========================================
+        Table of Contents
+    ========================================
+
+    ::Assumed Markup
+    ::Base Styles
+    
+    ::4 columns
+    ::6 columns
+    ::9 columns
+    ::12 columns
+    
+    ::Clearfix
+
+
+
+    ========================================
+        ::Assumed Markup
+    ========================================
+
+    <body>
+        <div class="page">
+            <header></header>
+            <section class="container">
+                <div class="inner">
+                    <div class="content">
+                        <div class="inner">
+                            <!-- content goes here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer></footer>
+        </div>
+    </body>
+
+    Notes:
+    .page ................. | Contains any overflow / offscreen elements
+    .container ............ | Defines large <section>'s
+    .container > .inner ... | Non-padded, centered fluid width block with clearfix
+    .content .............. | A left floating element
+    .content > .inner ..... | Padded block with clearfix
+
+
+
+    ========================================
+        ::Base Styles
+    ========================================
+*/
+    .page  {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .container {
+        position: relative;
+    }
+    
+    .container > .inner {
+        max-width: 1024px;
+        min-width: 240px;
+        margin: auto;
+    }
+    
+    .content {
+        float:left;
+    }
+    
+    .content > .inner {
+        padding: 0 1em;
+    }
+    
+
+
+/*
+    ========================================
+        ::4 columns
+    ========================================
+*/
+    .size1of4 { width: 25%; }
+    .size2of4 { width: 50%; }
+    .size3of4 { width: 75%; }
+    .size4of4 { width: 100%; }
+    
+    .size1of1 { width: 100%; }
+    
+    .shift1of4 { margin-left: 25%; }
+    .shift2of4 { margin-left: 50%; }
+    .shift3of4 { margin-left: 75%; }
+    .shift4of4 { margin-left: 100%; }
+    
+    .hide-6,
+    .hide-9,
+    .hide-12 {
+        display: block;
+    }
+
+    .hide-4 {
+        display: none;
+    }
+
+
+
+/*
+    ========================================
+        ::6 columns
+    ========================================
+*/
+    @media screen and (min-width: 321px) and (max-width: 480px) {
+    
+        .size1of6 { width: 16.66666%; }
+        .size2of6 { width: 33.33333%; }
+        .size3of6 { width: 50%; }
+        .size4of6 { width: 66.66666%; }
+        .size5of6 { width: 83.33333%; }
+        .size6of6 { width: 100%; }
+    
+        .shift1of6 { margin-left: 16.66666%; }
+        .shift2of6 { margin-left: 33.33333%; }
+        .shift3of6 { margin-left: 50%; }
+        .shift4of6 { margin-left: 66.66666%; }
+        .shift5of6 { margin-left: 83.33333%; }
+        .shift6of6 { margin-left: 100%; }
+    
+        .hide-4,
+        .hide-9,
+        .hide-12 {
+            display: block;
+        }
+    
+        .hide-6 {
+            display: none;
+        }
+
+    }
+
+
+
+/*
+    ========================================
+        ::9 columns
+    ========================================
+*/
+    @media screen and (min-width: 481px) and (max-width: 720px) {
+ 
+        .size1of9 { width: 11.1% }
+        .size2of9 { width: 22.2% }
+        .size3of9 { width: 33.3% }
+        .size4of9 { width: 44.4% }
+        .size5of9 { width: 55.5% }
+        .size6of9 { width: 66.6% }
+        .size7of9 { width: 77.7% }
+        .size8of9 { width: 88.8% }
+        .size8of8 { width: 100% }
+
+        .shift1of9 { margin-left: 11.1% }
+        .shift2of9 { margin-left: 22.2% }
+        .shift3of9 { margin-left: 33.3% }
+        .shift4of9 { margin-left: 44.4% }
+        .shift5of9 { margin-left: 55.5% }
+        .shift6of9 { margin-left: 66.6% }
+        .shift7of9 { margin-left: 77.7% }
+        .shift8of9 { margin-left: 88.8% }
+        .shift8of8 { margin-left: 100% }
+    
+        .hide-4,
+        .hide-6,
+        .hide-12 {
+            display: block;
+        }
+    
+        .hide-9 {
+            display: none;
+        }
+    
+    }
+
+
+
+/*
+    ========================================
+        ::12 columns
+    ========================================
+*/
+    @media screen and (min-width: 721px) {
+
+        .size1of12 { width: 8.33333%; }
+        .size2of12 { width: 16.66666%; }
+        .size3of12 { width: 25%; }
+        .size4of12 { width: 33.33333%; }
+        .size5of12 { width: 41.66666%; }
+        .size6of12 { width: 50%; }
+        .size7of12 { width: 58.33333%; }
+        .size8of12 { width: 66.66666%; }
+        .size9of12 { width: 75%; }
+        .size10of12 { width: 83.33333%; }
+        .size11of12 { width: 91.66666%; }
+        .size12of12 { width: 100%; }
+
+        .shift1of12 { margin-left: 8.33333%; }
+        .shift2of12 { margin-left: 16.66666%; }
+        .shift3of12 { margin-left: 25%; }
+        .shift4of12 { margin-left: 33.33333%; }
+        .shift5of12 { margin-left: 41.66666%; }
+        .shift6of12 { margin-left: 50%; }
+        .shift7of12 { margin-left: 58.33333%; }
+        .shift8of12 { margin-left: 66.66666%; }
+        .shift9of12 { margin-left: 75%; }
+        .shift10of12 { margin-left: 83.33333%; }
+        .shift11of12 { margin-left: 91.66666%; }
+        .shift12of12 { margin-left: 100%; }
+
+        .hide-4,
+        .hide-6,
+        .hide-9 {
+            display: block;
+        }
+
+        .hide-12 {
+            display: none;
+        }
+    
+    }
+
+
+
+/*
+    ========================================
+        ::Clearfix
+    ========================================
+*/
+    .group,
+    .container > .inner,
+    .content > .inner {
+        *zoom: 1;
+    }
+    .group:before,
+    .group:after,
+    .container > .inner:before,
+    .container > .inner:after,
+    .content > .inner:before,
+    .content > .inner:after {
+        display: table;
+        content: " ";
+    }
+    .group:after,
+    .container > .inner:after,
+    .content > .inner:after {
+        clear: both;
+    }
+
+
