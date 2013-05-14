@@ -1,6 +1,14 @@
 EBSCO Framework
 ===============
 
+Order of operation:
+-------------------
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/framework.css">
+    <link rel="stylesheet" href="css/patterns.css">
+    <link rel="stylesheet" href="css/skins.css">
+    <link rel="stylesheet" href="css/main.css">
+
 Assumed Markup
 --------------
     <body>
@@ -27,3 +35,4 @@ Notes (by class):
 * .content = A left floating element
 * .content > .inner = Padded block with clearfix
 
+* temp

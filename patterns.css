@@ -1,0 +1,187 @@
+/*
+    ========================================
+        Table of Contents
+    ========================================
+
+        ::Form Classes
+        ::Validation Classes
+
+*/
+
+
+
+.valign {
+    display:table;
+    width:100%;
+}
+
+.valign > inner {
+    display:table-cell;
+    vertical-align:middle;
+}
+
+/* vertical-align polyfill for IE7 */
+.lt-ie8 .valign > inner {
+    margin-top: expression(this.offsetHeight < this.parentNode.offsetHeight ? parseInt((this.parentNode.offsetHeight - this.offsetHeight) / 2) + "px" : "0");
+}
+
+
+
+/*
+    ========================================
+        ::Form Behavior Classes
+    ========================================
+    
+    Assumed Markup:
+    
+    <form class="form-behavior">
+        <div class="field">
+            <label for="name-id">Your Label</label>
+            <input type="text / email / tel" name="" id="name-id" class="required [optional]" />
+        </div>
+        
+        <div class="field radio">
+            <label for="name-id">
+                <input type="radio" id="name-id" />Your Label
+            </label>
+        </div>
+    </form>
+    
+    NOTES:
+    form-behavior class required for label fading and validation
+    the 'for' attribute is required to traverse between label and input / textarea
+*/
+div.field {
+    position:relative;
+    margin:0 0 2%;
+    padding:0;
+    border:0;
+}
+
+div.radio {
+    height:30px;
+    margin:0 0 6px 0;
+}
+
+div.field label {
+    cursor:text;
+}
+
+div.radio label {
+    cursor:pointer;
+}
+
+.js div.field label {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    padding:0 1%;
+    line-height:40px;
+}
+
+
+.js div.radio label {
+    padding: 0 15px 0 0;
+    line-height:30px;
+    transition:background .2s ease-out;
+    -moz-transition:background .2s ease-out;
+    -webkit-transition:background .2s ease-out;
+    -ms-transition:background .2s ease-out;
+    -o-transition:background .2s ease-out;
+}
+
+div.field input[type=text],
+div.field input[type=email],
+div.field input[type=tel] {
+    width:98%;
+    height:40px;
+    line-height:40px;
+    margin:0;
+    padding:0 1%;
+    border:0px;
+    background:#fff;
+    transition:background .2s ease-out;
+    -moz-transition:background .2s ease-out;
+    -webkit-transition:background .2s ease-out;
+    -ms-transition:background .2s ease-out;
+    -o-transition:background .2s ease-out;
+}
+
+div.field input[type=email]:invalid,
+div.field input[type=email]:-moz-ui-invalid {
+    outline:0px none;
+    box-shadow:none;
+}
+
+div.field input[type=radio] {
+    float:left;
+    height:30px;
+    margin:0 5px 0 0;
+}
+
+div.field input[type=file] {
+    display:none;
+    visibility:hidden;
+}
+
+.double div.field {
+    float:left;
+    width:49%;
+}
+
+.double div.field label {
+    padding:0 2%;
+}
+
+.double div.field input {
+    float:left;
+    width:96%;
+    padding:0 2%;
+}
+
+.double div.field:last-child {
+    float:right;
+    margin:0;
+}
+
+textarea {
+    width:98%;
+    padding:7px 1%;
+    line-height:26px;
+    border:0;
+    resize: vertical;
+}
+
+
+
+/*
+    ========================================
+        ::Validation Classes
+    ========================================
+*/
+.disabled {
+    background:#C0C0C0 !important;
+    cursor:default !important;
+}
+.disabled:after {
+    border-color: transparent transparent transparent #C0C0C0 !important;
+}
+
+.invalid {
+    background:#FFFFDE !important;
+    outline:2px solid #FFFE94 !important;
+}
+
+.error {
+    background:#FF9494 !important;
+}
+.error:after {
+    border-color: transparent transparent transparent #FF9494 !important;
+}
+
+input.error,
+textarea.error,
+.radio label.error {
+    outline:2px solid #FF2E2E !important;
+}
