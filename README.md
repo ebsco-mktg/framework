@@ -1,5 +1,8 @@
-Assumed Markup
+EBSCO Framework
+===============
 
+Assumed Markup
+--------------
     <body>
         <div class="page">
             <header></header>
@@ -16,9 +19,11 @@ Assumed Markup
         </div>
     </body>
 
-Notes:
-.page ................. | Contains any overflow / offscreen elements
-.container ............ | Defines large <section>'s
-.container > .inner ... | Non-padded, centered fluid width block with clearfix
-.content .............. | A left floating element
-.content > .inner ..... | Padded block with clearfix
+Notes (by class):
+-----------------
+* .page = Contains any overflow / offscreen elements
+* .container = Defines large <section>'s
+* .container > .inner = Non-padded, centered fluid width block with clearfix
+* .content = A left floating element
+* .content > .inner = Padded block with clearfix
+
