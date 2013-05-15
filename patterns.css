@@ -125,26 +125,6 @@ div.field input[type=file] {
     visibility:hidden;
 }
 
-.double div.field {
-    float:left;
-    width:49%;
-}
-
-.double div.field label {
-    padding:0 2%;
-}
-
-.double div.field input {
-    float:left;
-    width:96%;
-    padding:0 2%;
-}
-
-.double div.field:last-child {
-    float:right;
-    margin:0;
-}
-
 textarea {
     width:98%;
     padding:7px 1%;
