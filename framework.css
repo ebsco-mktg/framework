@@ -6,6 +6,8 @@
     ::Assumed Markup
     ::Base Styles
     
+    ::Global Widths
+    
     ::4 columns
     ::6 columns
     ::9 columns
@@ -70,7 +72,17 @@
     .content > .inner {
         padding: 0 1em;
     }
-    
+
+
+
+/*
+    ========================================
+        ::Global Widths
+    ========================================
+*/
+    .size1of1 { width: 100%; }
+    .size1of2 { width: 50%; }
+
 
 
 /*
