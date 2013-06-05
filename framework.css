@@ -6,6 +6,8 @@
     ::Assumed Markup
     ::Base Styles
     
+    ::Global Widths
+    
     ::4 columns
     ::6 columns
     ::9 columns
@@ -70,7 +72,17 @@
     .content > .inner {
         padding: 0 1em;
     }
-    
+
+
+
+/*
+    ========================================
+        ::Global Widths
+    ========================================
+*/
+    .size1of1 { width: 100%; }
+    .size1of2 { width: 50%; }
+
 
 
 /*
@@ -152,7 +164,7 @@
         .size6of9 { width: 66.6% }
         .size7of9 { width: 77.7% }
         .size8of9 { width: 88.8% }
-        .size8of8 { width: 100% }
+        .size9of9 { width: 100% }
 
         .shift1of9 { margin-left: 11.1% }
         .shift2of9 { margin-left: 22.2% }
@@ -162,7 +174,7 @@
         .shift6of9 { margin-left: 66.6% }
         .shift7of9 { margin-left: 77.7% }
         .shift8of9 { margin-left: 88.8% }
-        .shift8of8 { margin-left: 100% }
+        .shift9of9 { margin-left: 100% }
     
         .hide-4,
         .hide-6,

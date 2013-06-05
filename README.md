@@ -30,7 +30,7 @@ Assumed Markup
 Notes (by class):
 -----------------
 * .page = Contains any overflow / offscreen elements
-* .container = Defines large <section>'s
+* .container = Defines large &lt;section&gt;s
 * .container > .inner = Non-padded, centered fluid width block with clearfix
 * .content = A left floating element
 * .content > .inner = Padded block with clearfix

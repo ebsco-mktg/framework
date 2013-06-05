@@ -3,7 +3,7 @@
         Table of Contents
     ========================================
 
-        ::Form Classes
+        ::Form Behavior Classes
         ::Validation Classes
 
 */
@@ -123,26 +123,6 @@ div.field input[type=radio] {
 div.field input[type=file] {
     display:none;
     visibility:hidden;
-}
-
-.double div.field {
-    float:left;
-    width:49%;
-}
-
-.double div.field label {
-    padding:0 2%;
-}
-
-.double div.field input {
-    float:left;
-    width:96%;
-    padding:0 2%;
-}
-
-.double div.field:last-child {
-    float:right;
-    margin:0;
 }
 
 textarea {
