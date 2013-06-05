@@ -133,7 +133,66 @@ textarea {
     resize: vertical;
 }
 
-
+/*
+	PUSH-LABEL :: extends form base
+		
+		Assumed markup:
+		
+	    <form class="form-behavior push-label">
+	        <div class="field">
+	            <label for="name-id">Your Label</label>
+	            <input type="text / email / tel" name="" id="name-id" class="required [optional]" />
+	        </div>
+	    </form>		
+	    
+	    NOTES:
+	    Optionally include js to trigger validation cues (.hasValue, .hasError)
+*/
+	
+		.push-label p ~ div.field,
+		.push-label h2 ~ div.field {
+			margin-top: 40px;
+		}
+		.push-label .field {
+			margin-bottom: 4%;
+		}
+		.push-label div.field label {
+			left: 10px;
+			padding: 0; 
+			text-align: left;
+			color: inherit;
+			transition: top 0.75s, color 0.75s ease-in-out;
+			-moz-transition: top 0.75s, color 0.75s ease-in-out;
+			-webkit-transition: top 0.75s, color 0.75s ease-in-out;
+			-o-transition: top 0.75s, color 0.75s ease-in-out;
+			-ms-transition: top 0.75s, color 0.75s ease-in-out;
+		}
+		
+		/* optional validation classing */
+		.push-label div.field label.hasValue {
+			top: -35px;
+			color: rgb(125,125,125);
+		}
+	
+		.push-label div.field label:before {
+			content: '';
+			padding-right: 10px;
+		}
+		.push-label div.field label.hasError:before {
+			content: '×';
+			color: rgb(121, 35, 35);
+			font-size: 24px;
+		}
+		.push-label div.field label.hasValue:before {
+			content: '';
+		}
+		
+		.push-label div.field label.hasValue:before {
+			content: '✔';
+			color: rgb(35, 121, 69);
+			font-size: 24px;
+		}
+	}
 
 /*
     ========================================
