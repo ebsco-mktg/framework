@@ -150,6 +150,86 @@ function setupExpanderList(aElem) {
 }// setupExpander
 
 
+/**
+ * Load specific images based upon media query <p>
+ * HTML element passes in data attr setting media queries and their associated img src <p> 
+ * Sample markup: <p>
+ *  
+ * 	<img class="fnImageMQ" 
+ * 		src="/images-nursing/pages/hpbanner_patient-care_320x250.jpg" 
+ * 		data-config = '{
+ * 			"mq" : ["(min-width: 1px)",
+ * 					"(min-width: 321px)",
+ * 					"(min-width: 481px)",
+ * 					"(min-width: 721px)"],
+ * 			"src" : ["/images-nursing/pages/hpbanner_patient-care_320x250.jpg",
+ * 					"/images-nursing/pages/hpbanner_patient-care_480x250.jpg",
+ * 					"/images-nursing/pages/hpbanner_patient-care_720x300.jpg",
+ * 					"/images-nursing/pages/hpbanner_patient-care_960x300.jpg" ]
+ * 			}' />
+ * <pre><code>
+ * &lt;img&nbsp;class=&quot;slider-image&nbsp;fnImageMQ&quot;&nbsp;<br/>	src=&quot;/images-nursing/pages/hpbanner_patient-care_320x250.jpg&quot;&nbsp;<br/>	data-config&nbsp;=&nbsp;'{<br/>		&quot;mq&quot;&nbsp;:&nbsp;[&quot;(min-width:&nbsp;1px)&quot;,<br/>				&quot;(min-width:&nbsp;321px)&quot;,<br/>				&quot;(min-width:&nbsp;481px)&quot;,<br/>				&quot;(min-width:&nbsp;721px)&quot;],<br/>		&quot;src&quot;&nbsp;:&nbsp;[&quot;/images-nursing/pages/hpbanner_patient-care_320x250.jpg&quot;,<br/>				&quot;/images-nursing/pages/hpbanner_patient-care_480x250.jpg&quot;,<br/>				&quot;/images-nursing/pages/hpbanner_patient-care_720x300.jpg&quot;,<br/>				&quot;/images-nursing/pages/hpbanner_patient-care_960x300.jpg&quot;&nbsp;]<br/>		}'&nbsp;/&gt;
+ * </code></pre>
+ * 
+ * @param {Object} aElem The element containing the behavior
+ * @return {void} (modifies DOM)
+ */
+function setupImageMQ(aElem) {
+	var mqIdx = -1; // intially set the media query counter to -1; this gets updated to match the current mq
+	viewportObj.getViewport();
+	var currentViewport = viewportObj.viewport;
+	//console.log('test is ' + ( $(aElem).data('config').mq.length === $(aElem).data('config').src.length ) );
+	// NOTE: for this early version we are assuming ALL media queries are ONLY 'min-width' AND in pixels
+	if ( $(aElem).data('config').mq.length === $(aElem).data('config').src.length ) {
+		//console.log('setting image src');
+		var currentImgSrc = $(aElem).attr('src'),
+			newImgSrc = currentImgSrc;
+
+		for (i=0; i<$(aElem).data('config').src.length; i++) {
+			// sets mqStr to the current mq value in the array
+			// sets mqInt to the interger value of the media query
+			var mqStr = $(aElem).data('config').mq[ i ],
+				mqInt = +(mqStr.replace(/^\([a-zA-Z-:]+/,'')).replace(/[a-zA-Z]+\)$/,'');
+			// compare this mq width to viewportObj.viewport
+			//console.log('currentViewport: ' + currentViewport + '; mqInt: ' + mqInt);
+			if (currentViewport > mqInt) {
+				// this is [potentially] the index (i) we want to use for setting the image source
+				//console.log('setting mqIdx: ' + mqIdx);
+				mqIdx = i;
+			}
+		}
+
+		if (mqIdx > -1) {
+			// set the img src to the matching array value
+			newImgSrc = $(aElem).data('config').src[ mqIdx ];
+			$(aElem).css('display','block');
+		} else {
+			//console.log('no image to set');
+			newImgSrc = '';
+			$(aElem).css('display','none');
+		}
+
+		// check if img needs to be background image
+		if ($(aElem).data('config').background === "true"){
+			//console.log('setting up background');
+			bgURL = 'url(' + newImgSrc + ')';
+			$(aElem).attr('src','').addClass('visuallyhidden');
+			$(aElem).parent().css('background-image',bgURL).css('background-position','0 50%');
+		} else {
+			// update the element only if the image sources are different
+			if (newImgSrc !== currentImgSrc) {
+				//console.log('loading new image');
+				$(aElem).attr('src',newImgSrc);
+			}
+		}
+
+	} else {
+		console.log('error in data-config: mq and src lengths must match');
+		return false;
+	}
+
+} // setupImageMQ
+
 
 jQuery(function($) {
 	/**
@@ -158,6 +238,18 @@ jQuery(function($) {
 	 * are used to trigger event attachments
 	 */
 	var aFunctionalElem = $('[class*="fn"]');
+
+	// create an object to store the method to get the current viewport
+	// call via viewportObj.getViewport(), viewportObj.getViewportHeight()
+	var viewportObj = {
+		viewport: 0,
+		getViewport: function() {
+			this.viewport = $(window).width();
+		},
+		getViewportHeight: function() {
+			this.viewportHeight = $(window).height();
+		}
+	}
 
 	/**
 	 * Loops through the elements that contain classes 
@@ -176,9 +268,16 @@ jQuery(function($) {
 					case "fnExpander":
 						if ($(this).data("target")) {	// if we're specifying the target, presume the traditional show/hide
 							setupExpanderPod(this);
-						} else {						// otherwise presume a list expander and we'll need to generate controls
+						} else {	// otherwise presume a list expander and we'll need to generate controls
 							setupExpanderList(this);
 						}
+						break;
+					case "fnImageMQ":
+						var that = this;
+						setupImageMQ(that);
+						$(window).resize(function() {
+							setupImageMQ(that);
+						});
 						break;
 				}
 			}
