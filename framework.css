@@ -10,6 +10,7 @@
     
     ::4 columns
     ::6 columns
+    ::8 columns
     ::9 columns
     ::12 columns
     
@@ -155,7 +156,27 @@
     ========================================
 */
     @media screen and (min-width: 481px) and (max-width: 720px) {
- 
+
+        /* ::8 Columns */
+        .size1of8 { width: 12.5%; }
+        .size2of8 { width: 25%; }
+        .size3of8 { width: 37.5%; }
+        .size4of8 { width: 50%; }
+        .size5of8 { width: 62.5%; }
+        .size6of8 { width: 75%; }
+        .size7of8 { width: 87.5%; }
+        .size8of8 { width: 100%; }
+        
+        .shift1of8 { width: 12.5%; }
+        .shift2of8 { width: 25%; }
+        .shift3of8 { width: 37.5%; }
+        .shift4of8 { width: 50%; }
+        .shift5of8 { width: 62.5%; }
+        .shift6of8 { width: 75%; }
+        .shift7of8 { width: 87.5%; }
+        .shift8of8 { width: 100%; }
+
+        /* ::9 Columns */
         .size1of9 { width: 11.1% }
         .size2of9 { width: 22.2% }
         .size3of9 { width: 33.3% }
@@ -182,6 +203,7 @@
             display: block;
         }
     
+        .hide-8,
         .hide-9 {
             display: none;
         }
