@@ -6,10 +6,13 @@
     ::Assumed Markup
     ::Base Styles
     
-    ::4 columns
-    ::6 columns
-    ::9 columns
-    ::12 columns
+    ::Global Width
+    
+    ::4 Columns
+    ::6 Columns
+    ::8 Columns
+    ::9 Columns
+    ::12 Columns
     
     ::Clearfix
 
@@ -58,7 +61,7 @@
     }
     
     .container > .inner {
-        max-width: 1024px;
+        max-width: 960px;
         min-width: 240px;
         margin: auto;
     }
@@ -70,12 +73,21 @@
     .content > .inner {
         padding: 0 1em;
     }
+   
     
-
 
 /*
     ========================================
-        ::4 columns
+        ::Global Width
+    ========================================
+*/
+    .size1of1 { width: 100%; }
+    
+    
+
+/*
+    ========================================
+        ::4 Columns
     ========================================
 */
     .size1of4 { width: 25%; }
@@ -83,20 +95,18 @@
     .size3of4 { width: 75%; }
     .size4of4 { width: 100%; }
     
-    .size1of1 { width: 100%; }
-    
     .shift1of4 { margin-left: 25%; }
     .shift2of4 { margin-left: 50%; }
     .shift3of4 { margin-left: 75%; }
     .shift4of4 { margin-left: 100%; }
     
-    .hide-6,
-    .hide-9,
-    .hide-12 {
+    .hide6,
+    .hide9,
+    .hide12 {
         display: block;
     }
 
-    .hide-4 {
+    .hide4 {
         display: none;
     }
 
@@ -104,7 +114,7 @@
 
 /*
     ========================================
-        ::6 columns
+        ::6 Columns
     ========================================
 */
     @media screen and (min-width: 321px) and (max-width: 480px) {
@@ -123,13 +133,13 @@
         .shift5of6 { margin-left: 83.33333%; }
         .shift6of6 { margin-left: 100%; }
     
-        .hide-4,
-        .hide-9,
-        .hide-12 {
+        .hide4,
+        .hide9,
+        .hide12 {
             display: block;
         }
     
-        .hide-6 {
+        .hide6 {
             display: none;
         }
 
@@ -139,11 +149,34 @@
 
 /*
     ========================================
-        ::9 columns
+        ::8 Columns
+        ::9 Columns
     ========================================
 */
     @media screen and (min-width: 481px) and (max-width: 720px) {
- 
+        
+        /* ::8 Columns */
+        .size1of8 { width: 12.5%; }
+        .size2of8 { width: 25%; }
+        .size3of8 { width: 37.5%; }
+        .size4of8 { width: 50%; }
+        .size5of8 { width: 62.5%; }
+        .size6of8 { width: 75%; }
+        .size7of8 { width: 87.5%; }
+        .size8of8 { width: 100%; }
+        
+        .shift1of8 { width: 12.5%; }
+        .shift2of8 { width: 25%; }
+        .shift3of8 { width: 37.5%; }
+        .shift4of8 { width: 50%; }
+        .shift5of8 { width: 62.5%; }
+        .shift6of8 { width: 75%; }
+        .shift7of8 { width: 87.5%; }
+        .shift8of8 { width: 100%; }
+        
+        
+        
+        /* ::9 Columns */
         .size1of9 { width: 11.1% }
         .size2of9 { width: 22.2% }
         .size3of9 { width: 33.3% }
@@ -152,7 +185,7 @@
         .size6of9 { width: 66.6% }
         .size7of9 { width: 77.7% }
         .size8of9 { width: 88.8% }
-        .size8of8 { width: 100% }
+        .size9of9 { width: 100% }
 
         .shift1of9 { margin-left: 11.1% }
         .shift2of9 { margin-left: 22.2% }
@@ -162,15 +195,15 @@
         .shift6of9 { margin-left: 66.6% }
         .shift7of9 { margin-left: 77.7% }
         .shift8of9 { margin-left: 88.8% }
-        .shift8of8 { margin-left: 100% }
+        .shift9of9 { margin-left: 100% }
     
-        .hide-4,
-        .hide-6,
-        .hide-12 {
+        .hide4,
+        .hide6,
+        .hide12 {
             display: block;
         }
     
-        .hide-9 {
+        .hide9 {
             display: none;
         }
     
@@ -180,7 +213,7 @@
 
 /*
     ========================================
-        ::12 columns
+        ::12 Columns
     ========================================
 */
     @media screen and (min-width: 721px) {
@@ -211,13 +244,13 @@
         .shift11of12 { margin-left: 91.66666%; }
         .shift12of12 { margin-left: 100%; }
 
-        .hide-4,
-        .hide-6,
-        .hide-9 {
+        .hide4,
+        .hide6,
+        .hide9 {
             display: block;
         }
 
-        .hide-12 {
+        .hide12 {
             display: none;
         }
     
