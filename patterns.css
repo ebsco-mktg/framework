@@ -15,13 +15,13 @@
     width:100%;
 }
 
-.valign > inner {
+.valign > .inner {
     display:table-cell;
     vertical-align:middle;
 }
 
 /* vertical-align polyfill for IE7 */
-.lt-ie8 .valign > inner {
+.lt-ie8 .valign > .inner {
     margin-top: expression(this.offsetHeight < this.parentNode.offsetHeight ? parseInt((this.parentNode.offsetHeight - this.offsetHeight) / 2) + "px" : "0");
 }
 
