@@ -38,12 +38,25 @@
         </div>
     </body>
 
-    Notes:
-    .page ................. | Contains any overflow / offscreen elements
-    .container ............ | Defines large <section>'s
-    .container > .inner ... | Non-padded, centered fluid width block with clearfix
-    .content .............. | A left floating element
-    .content > .inner ..... | Padded block with clearfix
+    NOTES:
+    ========================================
+    .page
+    Contains any overflow / offscreen elements
+    
+    .container
+    Defines large <section>'s
+    
+    .container > .inner
+    Non-padded, centered fluid width block with clearfix
+    
+    .content
+    A left floating element
+    
+    .content > .inner
+    Padded block with clearfix
+    
+    .content > .inner *:first-child
+    Removes the top margin on first element
 
 
 
@@ -71,7 +84,11 @@
     }
     
     .content > .inner {
-        padding: 0 1em;
+        padding: 0 10px;
+    }
+    
+    .content > .inner *:first-child {
+        margin-top: 0;
     }
    
     
