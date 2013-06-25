@@ -6,6 +6,7 @@
     ::Assumed Markup
     ::Base Styles
     
+<<<<<<< HEAD
     ::Global Widths
     
     ::4 columns
@@ -13,6 +14,15 @@
     ::8 columns
     ::9 columns
     ::12 columns
+=======
+    ::Global Width
+    
+    ::4 Columns
+    ::6 Columns
+    ::8 Columns
+    ::9 Columns
+    ::12 Columns
+>>>>>>> 485f3d232a34cfb7d6f80ebda52efcad81b80145
     
     ::Clearfix
 
@@ -38,12 +48,25 @@
         </div>
     </body>
 
-    Notes:
-    .page ................. | Contains any overflow / offscreen elements
-    .container ............ | Defines large <section>'s
-    .container > .inner ... | Non-padded, centered fluid width block with clearfix
-    .content .............. | A left floating element
-    .content > .inner ..... | Padded block with clearfix
+    NOTES:
+    ========================================
+    .page
+    Contains any overflow / offscreen elements
+    
+    .container
+    Defines large <section>'s
+    
+    .container > .inner
+    Non-padded, centered fluid width block with clearfix
+    
+    .content
+    A left floating element
+    
+    .content > .inner
+    Padded block with clearfix
+    
+    .content > .inner *:first-child
+    Removes the top margin on first element
 
 
 
@@ -61,7 +84,7 @@
     }
     
     .container > .inner {
-        max-width: 1024px;
+        max-width: 960px;
         min-width: 240px;
         margin: auto;
     }
@@ -71,8 +94,13 @@
     }
     
     .content > .inner {
-        padding: 0 1em;
+        padding: 0 10px;
     }
+    
+    .content > .inner *:first-child {
+        margin-top: 0;
+    }
+<<<<<<< HEAD
 
 
 
@@ -84,11 +112,23 @@
     .size1of1 { width: 100%; }
     .size1of2 { width: 50%; }
 
-
+=======
+   
+    
+>>>>>>> 485f3d232a34cfb7d6f80ebda52efcad81b80145
 
 /*
     ========================================
-        ::4 columns
+        ::Global Width
+    ========================================
+*/
+    .size1of1 { width: 100%; }
+    
+    
+
+/*
+    ========================================
+        ::4 Columns
     ========================================
 */
     .size1of4 { width: 25%; }
@@ -96,20 +136,18 @@
     .size3of4 { width: 75%; }
     .size4of4 { width: 100%; }
     
-    .size1of1 { width: 100%; }
-    
     .shift1of4 { margin-left: 25%; }
     .shift2of4 { margin-left: 50%; }
     .shift3of4 { margin-left: 75%; }
     .shift4of4 { margin-left: 100%; }
     
-    .hide-6,
-    .hide-9,
-    .hide-12 {
+    .hide6,
+    .hide9,
+    .hide12 {
         display: block;
     }
 
-    .hide-4 {
+    .hide4 {
         display: none;
     }
 
@@ -117,7 +155,7 @@
 
 /*
     ========================================
-        ::6 columns
+        ::6 Columns
     ========================================
 */
     @media screen and (min-width: 321px) and (max-width: 480px) {
@@ -136,13 +174,13 @@
         .shift5of6 { margin-left: 83.33333%; }
         .shift6of6 { margin-left: 100%; }
     
-        .hide-4,
-        .hide-9,
-        .hide-12 {
+        .hide4,
+        .hide9,
+        .hide12 {
             display: block;
         }
     
-        .hide-6 {
+        .hide6 {
             display: none;
         }
 
@@ -152,11 +190,16 @@
 
 /*
     ========================================
-        ::9 columns
+        ::8 Columns
+        ::9 Columns
     ========================================
 */
     @media screen and (min-width: 481px) and (max-width: 720px) {
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 485f3d232a34cfb7d6f80ebda52efcad81b80145
         /* ::8 Columns */
         .size1of8 { width: 12.5%; }
         .size2of8 { width: 25%; }
@@ -167,6 +210,7 @@
         .size7of8 { width: 87.5%; }
         .size8of8 { width: 100%; }
         
+<<<<<<< HEAD
         .shift1of8 { width: 12.5%; }
         .shift2of8 { width: 25%; }
         .shift3of8 { width: 37.5%; }
@@ -176,6 +220,19 @@
         .shift7of8 { width: 87.5%; }
         .shift8of8 { width: 100%; }
 
+=======
+        .shift1of8 { margin-left: 12.5%; }
+        .shift2of8 { margin-left: 25%; }
+        .shift3of8 { margin-left: 37.5%; }
+        .shift4of8 { margin-left: 50%; }
+        .shift5of8 { margin-left: 62.5%; }
+        .shift6of8 { margin-left: 75%; }
+        .shift7of8 { margin-left: 87.5%; }
+        .shift8of8 { margin-left: 100%; }
+        
+        
+        
+>>>>>>> 485f3d232a34cfb7d6f80ebda52efcad81b80145
         /* ::9 Columns */
         .size1of9 { width: 11.1% }
         .size2of9 { width: 22.2% }
@@ -197,14 +254,18 @@
         .shift8of9 { margin-left: 88.8% }
         .shift9of9 { margin-left: 100% }
     
-        .hide-4,
-        .hide-6,
-        .hide-12 {
+        .hide4,
+        .hide6,
+        .hide12 {
             display: block;
         }
     
+<<<<<<< HEAD
         .hide-8,
         .hide-9 {
+=======
+        .hide9 {
+>>>>>>> 485f3d232a34cfb7d6f80ebda52efcad81b80145
             display: none;
         }
     
@@ -214,7 +275,7 @@
 
 /*
     ========================================
-        ::12 columns
+        ::12 Columns
     ========================================
 */
     @media screen and (min-width: 721px) {
@@ -245,13 +306,13 @@
         .shift11of12 { margin-left: 91.66666%; }
         .shift12of12 { margin-left: 100%; }
 
-        .hide-4,
-        .hide-6,
-        .hide-9 {
+        .hide4,
+        .hide6,
+        .hide9 {
             display: block;
         }
 
-        .hide-12 {
+        .hide12 {
             display: none;
         }
     
