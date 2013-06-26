@@ -292,7 +292,7 @@ var VALIDATE = (function () {
 					//moveLabel($(this));
 				},
 				blur : function() {
-					checkValue($(this));
+					VALIDATE.checkValue($(this));
 					VALIDATE.testfields($(this));
 				}
 			});
@@ -578,7 +578,7 @@ jQuery(function($) {
 							setupImageMQ(that);
 						});
 						break;
-					case "form-behavior":
+					case "fnValidate":
 						VALIDATE.init();
 						break;
 				}
