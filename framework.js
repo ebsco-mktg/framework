@@ -227,7 +227,7 @@ var VALIDATE = (function () {
 
 		VALIDATE.setClass( thisLabel, 'hasValue' );
 
-		// if input is child of multiline classed parent, add active to the input
+		// if input is child of multiline classed parent, add active class to the input
 		if ( $(inputField).parent().hasClass('multiline') ) {
 			VALIDATE.setClass( $(inputField).parent('.multiline'), 'active' );
 		}
@@ -242,10 +242,11 @@ var VALIDATE = (function () {
 		
 		VALIDATE.removeClass( thisLabel, 'hasValue' );
 		
+		// if input is child of multiline classed parent, remove active class from the input
 		if ( $(inputField).parent().hasClass('multiline') ) {
 			VALIDATE.removeClass( $(inputField).parent('.multiline'), 'active' );
 		}
-		// if input field has a prefix (like 'http://') then add active class to the prefix element
+		// if input field has a prefix (like 'http://') then remove active class from the prefix element
 		if ( inputField.hasClass('hasPrefix') ) {
 			VALIDATE.removeClass( inputField.prev('.field-prefix'), 'active' );
 		}
@@ -267,7 +268,8 @@ var VALIDATE = (function () {
 	// binds validation to click event of submit buttons
 	my.init = function () {
 		var submit = $('.form-behavior input[type="submit"], .form-behavior button[type="submit"]'),
-			required = $('.form-behavior').find('.required:visible'),
+			//required = $('.form-behavior').find('.required:visible'),
+			fields = $('.form-behavior input:visible').add('.form-behavior textarea:visible'),
 			thisError = 0;
 		
 		submit.on('click', function() {
@@ -281,7 +283,9 @@ var VALIDATE = (function () {
 			}
 		});
 		
-		required.each(function(){
+		// we need to call move labels on all fields - not just required ones
+		//required.each(function(){
+		fields.each(function(){
 			$(this).on({
 				click : function() {
 					VALIDATE.moveLabel($(this));
@@ -293,7 +297,9 @@ var VALIDATE = (function () {
 				},
 				blur : function() {
 					VALIDATE.checkValue($(this));
-					VALIDATE.testfields($(this));
+					if ( $(this).hasClass('required') ) {
+						VALIDATE.testfields($(this));
+					}
 				}
 			});
 		});
