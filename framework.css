@@ -100,22 +100,6 @@
     .content > .inner *:first-child {
         margin-top: 0;
     }
-<<<<<<< HEAD
-
-
-
-/*
-    ========================================
-        ::Global Widths
-    ========================================
-*/
-    .size1of1 { width: 100%; }
-    .size1of2 { width: 50%; }
-
-=======
-   
-    
->>>>>>> 485f3d232a34cfb7d6f80ebda52efcad81b80145
 
 /*
     ========================================
@@ -195,11 +179,6 @@
     ========================================
 */
     @media screen and (min-width: 481px) and (max-width: 720px) {
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 485f3d232a34cfb7d6f80ebda52efcad81b80145
         /* ::8 Columns */
         .size1of8 { width: 12.5%; }
         .size2of8 { width: 25%; }
@@ -210,17 +189,6 @@
         .size7of8 { width: 87.5%; }
         .size8of8 { width: 100%; }
         
-<<<<<<< HEAD
-        .shift1of8 { width: 12.5%; }
-        .shift2of8 { width: 25%; }
-        .shift3of8 { width: 37.5%; }
-        .shift4of8 { width: 50%; }
-        .shift5of8 { width: 62.5%; }
-        .shift6of8 { width: 75%; }
-        .shift7of8 { width: 87.5%; }
-        .shift8of8 { width: 100%; }
-
-=======
         .shift1of8 { margin-left: 12.5%; }
         .shift2of8 { margin-left: 25%; }
         .shift3of8 { margin-left: 37.5%; }
@@ -232,7 +200,6 @@
         
         
         
->>>>>>> 485f3d232a34cfb7d6f80ebda52efcad81b80145
         /* ::9 Columns */
         .size1of9 { width: 11.1% }
         .size2of9 { width: 22.2% }
@@ -260,12 +227,7 @@
             display: block;
         }
     
-<<<<<<< HEAD
-        .hide-8,
-        .hide-9 {
-=======
         .hide9 {
->>>>>>> 485f3d232a34cfb7d6f80ebda52efcad81b80145
             display: none;
         }
     
