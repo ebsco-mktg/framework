@@ -173,25 +173,6 @@ textarea {
 			top: -35px;
 			color: rgb(125,125,125);
 		}
-	
-		.push-label div.field label:before {
-			content: '';
-			padding-right: 10px;
-		}
-		.push-label div.field label.hasError:before {
-			content: '×';
-			color: rgb(121, 35, 35);
-			font-size: 24px;
-		}
-		.push-label div.field label.hasValue:before {
-			content: '';
-		}
-		
-		.push-label div.field label.hasValue:before {
-			content: '✔';
-			color: rgb(35, 121, 69);
-			font-size: 24px;
-		}
 	}
 
 /*
