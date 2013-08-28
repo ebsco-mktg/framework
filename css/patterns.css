@@ -165,3 +165,112 @@ textarea.error,
 .radio label.error {
     outline:2px solid #FF2E2E !important;
 }
+
+
+
+/*
+    ========================================
+        ::Split Functionality
+    ========================================
+
+        To do:
+            *Create a pattern for 1|23|4 case
+
+*/
+.split2 > * {
+    width: 49%;
+}
+
+.split2 .split2 > * {
+    width: 48%;
+    margin-left: 4%;
+}
+
+.split2 .split1and2of3 > * {
+    width: 64%;
+    margin-left: 4%;
+}
+
+.split2 .split2and3of3 > * {
+    width: 30%;
+    margin-left: 4%;
+}
+
+/*
+    ========================================
+	Split 3
+    ========================================
+*/
+
+.split1and2of3 > *,
+.split2and3of3 > *:first-child {
+	width: 66%;
+}
+
+.split3 > *,
+.split1and2of3 > *:first-child,
+.split2and3of3 > * {
+	width: 32%;
+}
+
+
+
+/*
+    ========================================
+	Split 4
+    ========================================
+*/
+.split1and2of4 > *,
+.split3and4of4 > *:first-child {
+	width: 74.5%;
+}
+
+.split4 > *,
+.split1and2of4 > *:first-child,
+.split3and4of4 > * {
+	width: 23.5%;
+}
+
+
+/*coming soon'ish - 1|23|4*/
+.split1and2of4.split3and4of4 {}
+
+
+
+/*
+    ========================================
+	Margin columns
+    ========================================
+*/
+.split2 > *,
+.split3 > *,
+.split4 > *,
+.split1and2of3 > *,
+.split2and3of3 > *,
+.split1and2of4 > *,
+.split3and4of4 > * {
+	margin-left: 2%;
+  /*IE7 hack*/
+  *left: 2%;
+  *padding-bottom: 2%;
+}
+
+
+
+/*
+    ========================================
+	Clear first
+    ========================================
+*/
+.split2 > *:first-child,
+.split3 > *:first-child,
+.split4 > *:first-child,
+.split1and2of3 > *:first-child,
+.split2and3of3 > *:first-child,
+.split1and2of4 > *:first-child,
+.split3and4of4 > *:first-child,
+.split2 .split2 > *:first-child {
+	margin: 0;
+  /*IE7 hack*/
+  *left: 0 !important;
+}
