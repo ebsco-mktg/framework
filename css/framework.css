@@ -13,6 +13,7 @@
     ::8 Columns
     ::9 Columns
     ::12 Columns
+    ::16 Columns
     
     ::Clearfix
 
@@ -118,8 +119,10 @@
     .shift4of4 { margin-left: 100%; }
     
     .hide6,
+    .hide8,
     .hide9,
-    .hide12 {
+    .hide12,
+    .hide16 {
         display: block;
     }
 
@@ -151,8 +154,10 @@
         .shift6of6 { margin-left: 100%; }
     
         .hide4,
+        .hide8,
         .hide9,
-        .hide12 {
+        .hide12,
+        .hide16 {
             display: block;
         }
     
@@ -216,10 +221,12 @@
     
         .hide4,
         .hide6,
-        .hide12 {
+        .hide12,
+        .hide16 {
             display: block;
         }
-    
+        
+        .hide8,
         .hide9 {
             display: none;
         }
@@ -233,7 +240,7 @@
         ::12 Columns
     ========================================
 */
-    @media screen and (min-width: 721px) {
+    @media screen and (min-width: 721px) and (max-width: 960px) {
 
         .size1of12 { width: 8.33333%; }
         .size2of12 { width: 16.66666%; }
@@ -263,7 +270,9 @@
 
         .hide4,
         .hide6,
-        .hide9 {
+        .hide8,
+        .hide9,
+        .hide16 {
             display: block;
         }
 
@@ -273,6 +282,63 @@
     
     }
 
+
+
+/*
+    ========================================
+        ::16 Columns
+    ========================================
+*/
+    @media screen and (min-width: 961px) {
+
+        .size1of16 { width: 6.25%; }
+        .size2of16 { width: 12.5%; }
+        .size3of16 { width: 18.75%; }
+        .size4of16 { width: 25%; }
+        .size5of16 { width: 31.25%; }
+        .size6of16 { width: 37.5%; }
+        .size7of16 { width: 43.75%; }
+        .size8of16 { width: 50%; }
+        .size9of16 { width: 56.25%; }
+        .size10of16 { width: 62.25%; }
+        .size11of16 { width: 68.75%; }
+        .size12of16 { width: 75%; }
+        .size13of16 { width: 81.25%; }
+        .size14of16 { width: 87.75%; }
+        .size15of16 { width: 93.75%; }
+        .size16of16 { width: 100%; }
+
+        .shift1of16 { margin-left: 6.25%; }
+        .shift2of16 { margin-left: 12.5%; }
+        .shift3of16 { margin-left: 18.75%; }
+        .shift4of16 { margin-left: 25%; }
+        .shift5of16 { margin-left: 31.25%; }
+        .shift6of16 { margin-left: 37.5%; }
+        .shift7of16 { margin-left: 43.75%; }
+        .shift8of16 { margin-left: 50%; }
+        .shift9of16 { margin-left: 56.25%; }
+        .shift10of16 { margin-left: 62.25%; }
+        .shift11of16 { margin-left: 68.75%; }
+        .shift12of16 { margin-left: 75%; }
+        .shift13of16 { margin-left: 81.25%; }
+        .shift14of16 { margin-left: 87.75%; }
+        .shift15of16 { margin-left: 93.75%; }
+        .shift16of16 { margin-left: 100%; }
+
+        .hide4,
+        .hide6,
+        .hide8,
+        .hide9,
+        .hide12 {
+            display: block;
+        }
+
+        .hide16 {
+            display: none;
+        }
+    
+    }
+    
 
 
 /*
