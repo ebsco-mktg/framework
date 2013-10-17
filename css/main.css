@@ -1,0 +1,255 @@
+/*
+    Primarily based on the HTML5 Boilerpate - h5bp.com
+    
+    ========================================
+        ::Base Styles
+    ========================================
+*/
+html,
+button,
+input,
+select,
+textarea {
+    color: #636363;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    font-size: 62.5%;
+    background: #f5f5f5;
+    /* hack for typekit on Mac */
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 21px;
+    line-height: 2.1rem;
+    font-family: "myriad-pro-n4", "myriad-pro", sans-serif;
+}
+
+/*
+    Remove text-shadow in selection highlight: h5bp.com/i
+    These selection rule sets have to be separate.
+    Customize the background color to match your design.
+*/
+
+::-moz-selection {
+    color:#fff;
+    background: #00457C;
+    text-shadow: none;
+}
+
+::selection {
+    color:#fff;
+    background: #00457C;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+    Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+*/
+
+img {
+    vertical-align: middle;
+}
+
+/*
+    Remove default fieldset styles.
+*/
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+    Allow only vertical resizing of textareas.
+*/
+
+textarea {
+    resize: vertical;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* replace this comment with your code */
+
+
+
+
+
+
+
+
+
+
+/*
+    ========================================
+        ::Helper Classes
+    ========================================
+
+    Hide from both screenreaders and browsers: h5bp.com/u
+*/
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+    Hide only visually, but have it available for screenreaders: h5bp.com/v
+*/
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+    Extends the .visuallyhidden class to allow the element to be focusable
+    when navigated to via the keyboard: h5bp.com/p
+*/
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+    Hide visually and from screenreaders, but maintain layout
+*/
+
+.invisible {
+    visibility: hidden;
+}
+
+
+
+/*
+    ========================================
+        ::Media Queries
+    ========================================
+*/
+@media screen and (min-width: 321px) {
+    
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+
+
+/*
+    ========================================
+        ::Print style
+    ========================================
+
+    Inlined to avoid required HTTP connection: h5bp.com/r
+
+*/
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+        Don't show links for images, or javascript/internal links
+    */
+
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
