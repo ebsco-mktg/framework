@@ -554,7 +554,7 @@ jQuery(function($) {
 		getViewportHeight: function() {
 			this.viewportHeight = $(window).height();
 		}
-	}
+	};
 
 	/**
 	 * Loops through the elements that contain classes 
