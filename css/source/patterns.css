@@ -1,0 +1,1056 @@
+/*
+    ========================================
+        Table of Contents
+    ========================================
+
+        ::Navigation
+        ::Form Behavior Classes
+        ::Validation Classes
+        ::Buttons
+
+*/
+
+/* base font styles */
+html {
+    font-family: "myriad-pro-n3", "myriad-pro", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.valign {
+    display:table;
+    width:100%;
+}
+
+.valign > .inner {
+    display:table-cell;
+    vertical-align:middle;
+}
+
+/* vertical-align polyfill for IE7 */
+.lt-ie8 .valign > .inner {
+    margin-top: expression(this.offsetHeight < this.parentNode.offsetHeight ? parseInt((this.parentNode.offsetHeight - this.offsetHeight) / 2) + "px" : "0");
+}
+
+hr.vertical {
+    width: 1px;
+    height: 1px;
+    margin: 0 auto -2000px;
+    padding: 0 0 2000px;
+    background: rgb(177,177,177);
+    border: 0;
+}
+
+/*
+    ========================================
+        ::Navigation
+    ========================================
+*/
+/**
+ * markup:
+ * 
+ * <nav id="siteNav" class="skin_main-nav">
+	<a href="#main-menu" id="mobile-menu"></a>
+	<ul class="top-nav group">
+ *     <li class="drop">
+ *       <a href="">Level One Item</a>
+ *       <ul class="sub-menu">
+ *         <li>
+ *           <a href="">Level Two Item</a>
+ *         </li>
+ *         [ repeat <li> as needed ]
+ *       </ul>
+ *     </li>
+ *     <li>
+ *       <a href="">Level One Item</a>
+ *     </li>
+ *     [ repeat either <li> as needed ]
+ *   </ul>
+ * </nav>
+ */
+
+
+/* nav-specific skinning classes
+ * apply skinning class to ultimate nav patent (usually <nav>) )
+ */
+
+/* default font-sizing */
+.skin_main-nav {
+	font-family: "myriad-pro-n4", "myriad-pro", sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 21px;
+}
+
+/* mobile skins */
+.skin_main-nav #mobile-menu {
+	background-color: transparent;
+	border: none;
+}
+	.skin_main-nav #mobile-menu.isOpen,
+	.skin_main-nav #mobile-menu:focus,
+	.skin_main-nav #mobile-menu:hover {
+		background-color: rgb(12, 67, 69);
+	}
+.skin_main-nav .top-nav {
+	background-color: rgb(12, 67, 69);
+	color: rgb(255, 255, 255);
+}
+	.skin_main-nav .top-nav a {
+		border-bottom: 1px solid rgb(19, 94, 97);
+		color: rgb(255, 255, 255);
+		text-decoration: none;
+	}
+	.skin_main-nav .top-nav li:hover,
+	.skin_main-nav .top-nav a:hover,
+	.skin_main-nav .top-nav li:focus,
+	.skin_main-nav .top-nav a:focus {
+		background-color: rgb(19, 94, 97);
+		text-decoration: none;
+	}
+
+#siteNav { 
+	float: left;
+	/* top margin give space for when cta btn is on same horizontal as site logo */
+	margin-top: 35px;
+	width: 100%;
+}
+
+#mobile-menu {
+	background: url(../img/mobile-menu-icon_1.png) 50% 50% no-repeat transparent;
+	display: block;
+	float: left;
+	height: 19px;
+	margin-top: -38px;
+	padding: 10px 20px;
+	width: 34px;
+}
+
+.top-nav {
+	clear: left;
+	display: block;
+	margin: 0;
+	max-height: 0;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	/* transition */
+	-webkit-transition: max-height 0.5s ease-in-out, opacity 0.35s ease-in-out;
+	transition: max-height 0.5s ease-in-out, opacity 0.35s ease-in-out;
+}
+	.sub-menu { display: none; }
+	
+	.top-nav li { padding: 0 10px; }
+	.top-nav a {
+		display: block;
+		padding: 25px 0 21px;
+	}
+
+/* open state */
+#mobile-menu.isOpen,
+#mobile-menu:focus,
+#mobile-menu:hover {
+	background: url(../img/mobile-menu-icon_2.png) 50% 50% no-repeat transparent;
+}
+#mobile-menu.isOpen ~ .top-nav,
+#mobile-menu:focus ~ .top-nav,
+#mobile-menu ~ .top-nav:focus { 
+	max-height: 500px;
+}
+
+/* nav back button */
+.nav-back {
+	clear: left;
+	display: none;
+	float: left;
+	margin: 16px 0 16px 16px;
+}
+	.nav-back a {
+		border: none;
+		display: block;
+		height: 32px;
+	    line-height: 32px;
+	    padding: 0 10px;
+		position: relative;
+	}
+	.nav-back a:before {
+	    border-color: transparent rgb(12, 67, 69) transparent transparent;
+	    border-style: solid;
+	    border-width: 16px 16px 16px 0;
+	    content: "";
+	    display: block;
+	    height: 0;
+	    left: 0;
+	    margin-left: -16px;
+	    margin-top: -16px;
+	    position: absolute;
+	    top: 50%;
+	    width: 0;
+	}
+	.nav-back a:hover { border: none; }
+	
+.nav-back.active {
+	display: block;
+}
+
+/* ie7 fallback - no sub-menus */
+.lt-ie8 .top-nav .sub-menu {
+	display: none;
+}
+
+/* 2-col drop menu on tablet size */
+@media screen and (min-width: 481px) and (max-width: 720px) {
+	.top-nav > li {
+		float: left;
+		width: 45%;
+	}
+}
+
+
+/* show horizontal nav at tablet sizes */
+@media screen and (min-width: 721px) {
+
+	/* desktop skins */
+	.skin_main-nav .top-nav { 
+		background-color: transparent;
+	}
+		.skin_main-nav .top-nav a {
+			border-bottom: 1px solid transparent;
+			color: rgb(59, 59, 59);
+			text-decoration: none;
+		}
+		.skin_main-nav .top-nav li:hover,
+		.skin_main-nav .top-nav a:hover,
+		.skin_main-nav .top-nav li:focus,
+		.skin_main-nav .top-nav a:focus,
+		.skin_main-nav .top-nav li.active > a,
+		.skin_main-nav .top-nav li.current > a,
+		.skin_main-nav .top-nav .selected > a {
+			background-color: transparent;
+			text-decoration: underline;
+		}
+	.skin_main-nav .sub-menu {
+		background-color: rgb(12, 67, 69);
+	}
+		.skin_main-nav .sub-menu a {
+			border-right: 1px solid rgb(255, 255, 255);
+			color: rgb(255, 255, 255);
+		}
+		.skin_main-nav .sub-menu li:last-child a {
+			border-color: transparent;
+		}
+
+		/* css triangle pointer above each sub menu */
+		.skin_main-nav .drop > a:before,
+		.skin_main-nav .drop.active > a:before,
+		.skin_main-nav .drop.current > a:before,
+		.cssPointer {
+		    border-color: transparent transparent rgb(12, 67, 69) transparent;
+		    border-style: solid;
+		    border-width: 0 15px 15px;
+		    content: "";
+		    display: block;
+		    height: 0;
+		    left: 50%;
+		    margin-left: -15px;
+		    opacity: 0;
+		    position: absolute;
+		    top: 43px;
+		    width: 0;
+		}
+		.skin_main-nav .drop:hover > a:before,
+		.skin_main-nav .drop:focus > a:before,
+		.skin_main-nav .drop.active > a:before,
+		.skin_main-nav .drop.current > a:before {
+			opacity: 1;
+		    top: 38px;
+		    /* transition */
+		   -webkit-transition: opacity 0.25s ease-in-out 0.5s, top 0.5s ease-in-out 0.5s;
+		   transition: opacity 0.25s ease-in-out 0.5s, top 0.5s ease-in-out 0.5s;
+		}
+
+
+	#siteNav {
+		margin-top: 1em;
+	}
+	#mobile-menu { display: none; }
+	.top-nav {
+		max-height: 500px;
+		overflow: visible;
+	}
+		/* default list items
+		 * options: .drop, .wrap-block, .after-wrap
+		 */
+		.top-nav li {
+			display: inline-block;
+			float: left;
+			line-height: 42px;
+			list-style: none;
+			margin: 0;
+			overflow: visible;
+			padding: 0;
+			width: auto;
+		}
+		/*.lt-ie9 .top-nav li {
+			display: block;
+			float: left;
+		}*/
+		.top-nav a { padding: 0; }
+		.top-nav li > a {
+			padding: 0 20px;
+		}
+		
+		.top-nav li:first-child > a,
+		.top-nav li.wrap-block > a {
+			padding-left: 0;
+		}
+		
+		
+		/* .drop list items */
+		
+		/*.drop.current {
+			height: 104px;
+		}
+		.drop.double {
+			height: 158px;
+		}
+		*/
+			.drop > a {
+				position: relative;
+			}
+			/* spacer element 
+			 * spacer is used to create the space for the level 2 nav to appear
+			 */ 
+			.top-nav > li > a:after,
+			.navSpacer {
+				content: "";
+				clear: both;
+				display: block;
+				height: 0;
+				position: relative;
+				width: 100%;
+				/* transition */
+				-webkit-transition: height 0.5s ease-in-out 0.4s;
+				transition: height 0.5s ease-in-out 0.4s;
+			}
+			/* IE needs inline */
+			.navSpacer { display: block; float: left; }
+			
+			/* spacer element hover state */
+			.drop:hover > a:after,
+			.drop > a:hover:after,
+			.drop:focus > a:after,
+			.drop > a:focus:after,
+			.drop.active > a:after,
+			.drop.current > a:after {
+				height: 61px;
+				/* transition */
+				-webkit-transition: height 0.5s ease-in-out 0s;
+				transition: height 0.5s ease-in-out 0s;
+			}
+			/* spacer element double height */ 
+			.drop:hover > a.double-space:after,
+			.drop > a.double-space:hover:after,
+			.drop:focus > a.double-space:after,
+			.drop > a.double-space:focus:after,
+			.drop.active > a.double-space:after,
+			.drop.current > a.double-space:after,
+			.navSpacer.double-space { 
+				height: 114px;
+				-webkit-transition: height 0.5s ease-in-out 0s;
+				transition: height 0.5s ease-in-out 0s;
+			}
+			
+
+		/* removing for browsers with no-csstransitions */
+		.no-csstransitions .skin_main-nav .drop > a:before,
+		.no-csstransitions .top-nav > li > a:after {
+			display: none;
+			height: 0;
+			width: 0;
+		}
+			
+			
+			/* default sub-menu */
+			.sub-menu {
+				display: none;
+				left: 0;
+				margin: 0 -10000px 0;
+				padding: 0 10000px;
+				position: absolute;
+				top: 50px;
+				width: 100%;
+				z-index: 0;
+			}
+				/* default sub-menu list items */
+				.sub-menu > li { 
+					/*float: none;*/
+					padding: 0;
+				}
+				.lt-ie9 .sub-menu > li {
+					display: block;
+					float: left;
+				}
+				.sub-menu a {
+					line-height: 0.8;
+					margin: 20px 0;
+					padding: 0 20px;
+				}
+				/* note: triangle pointer css is located with skins */
+			
+			/* sub-menu hover state */
+			.drop:hover .sub-menu,
+			.drop.active .sub-menu,
+			.drop.current .sub-menu,
+			.drop > a:hover + .sub-menu,
+			.drop:focus .sub-menu,
+			.drop > a:focus + .sub-menu {
+				z-index: 2;
+			}
+			
+			.active .sub-menu,
+			.current .sub-menu {
+				display: block;
+			}
+		
+		/* .wrap-block, .after-wrap list items */
+		.wrap-block { clear: left; }
+		.wrap-block,
+		.after-wrap { position: relative; }
+			
+			/* .wrap-block, .after-wrap sub-menu */
+			.wrap-block .sub-menu,
+			.after-wrap .sub-menu { white-space: nowrap; }
+			
+		.nav-back.active {
+			display: none;
+		}
+}
+
+
+
+/*
+    ========================================
+        ::Form Behavior Classes
+    ========================================
+    
+    Assumed Markup:
+    
+    <form class="form-behavior">
+        <div class="field">
+            <label for="name-id">Your Label</label>
+            <input type="text / email / tel" name="" id="name-id" class="required [optional]" />
+        </div>
+        
+        <div class="field radio">
+            <label for="name-id">
+                <input type="radio" id="name-id" />Your Label
+            </label>
+        </div>
+    </form>
+    
+    NOTES:
+    form-behavior class required for label fading and validation
+    the 'for' attribute is required to traverse between label and input / textarea
+*/
+div.field {
+    position:relative;
+    margin:0 0 2%;
+    padding:0;
+    border:0;
+}
+
+div.radio {
+    height:30px;
+    margin:0 0 6px 0;
+}
+
+div.field label {
+    cursor:text;
+}
+
+div.radio label {
+    cursor:pointer;
+}
+
+.js div.field label {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    padding:0 1%;
+    line-height:32px;
+}
+
+
+.js div.radio label {
+    padding: 0 15px 0 0;
+    line-height:30px;
+    transition:background .2s ease-out;
+    -moz-transition:background .2s ease-out;
+    -webkit-transition:background .2s ease-out;
+    -ms-transition:background .2s ease-out;
+    -o-transition:background .2s ease-out;
+}
+
+/* a group of radio buttons displayed vertically */
+.js div.radio-group {
+    height: auto;
+}
+.js div.radio-group label {
+    float: left;
+    position: relative;
+}
+
+
+div.field input[type=text],
+div.field input[type=password],
+div.field input[type=email],
+div.field input[type=tel],
+div.field textarea {
+    width:98%;
+    height:32px;
+    line-height:32px;
+    margin:0;
+    padding:0 1%;
+    border:0px;
+    background:#fff;
+    outline: 1px solid rgb(154,154,154);
+    transition:background .2s ease-out;
+    -moz-transition:background .2s ease-out;
+    -webkit-transition:background .2s ease-out;
+    -ms-transition:background .2s ease-out;
+    -o-transition:background .2s ease-out;
+}
+
+div.field input[type=email]:invalid,
+div.field input[type=email]:-moz-ui-invalid {
+    outline:0px none;
+    box-shadow:none;
+}
+
+div.field input[type=radio] {
+    float:left;
+    height:30px;
+    margin:0 5px 0 0;
+}
+
+div.field input[type=file] {
+    display:none;
+    visibility:hidden;
+}
+
+textarea {
+    width:98%;
+    padding:7px 1%;
+    line-height:26px;
+    border:0;
+    resize: vertical;
+}
+div.select {
+	overflow: hidden;
+}
+div.select select {
+    -moz-appearance: none;
+    background: none repeat scroll 0 0 transparent;
+	border: 1px solid rgb(154, 154, 154);
+    padding: 4px 0 0 1%;
+    position: relative;
+    width: 110%;
+    z-index: 1;
+}
+div.select select.disabled {
+	background: rgb(154,154,154);
+}
+div.select.disabled select {
+    color: rgb(153, 153, 153) !important;
+}
+.js div.select.disabled select option {
+    display: none;
+}
+div.select.disabled:hover span, div.select span {
+    background: none repeat scroll 0 0 rgb(154, 154, 154);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    height: 32px;
+    line-height: 32px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 30px;
+}
+div.select:hover span {
+    background: none repeat scroll 0 0 rgb(18,68,151);
+}
+option:checked {
+	/*background: rgb(40, 76, 105);*/
+}
+
+/*** form labels (new version of framework) ***/
+
+
+select {
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+}
+	select option {
+		/*height: 40px;
+		line-height: 40px;*/
+		font-size: 14px;
+	}
+
+div.checkbox {
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 20px;
+}
+	.form-behavior div.field.checkbox label {
+	    cursor: default;
+		line-height: 30px;
+		padding-left: 16px;
+	}
+
+@media screen and (min-width: 721px) {
+	select option {
+		/*height: 40px;
+		line-height: 40px;*/
+		font-size: 16px;
+	}
+	
+}
+
+
+/*
+	PUSH-LABEL :: extends form base
+		
+		Assumed markup:
+		
+	    <form class="form-behavior push-label">
+	        <div class="field">
+	            <label for="name-id">Your Label</label>
+	            <input type="text / email / tel" name="" id="name-id" class="required [optional]" />
+	        </div>
+	    </form>		
+	    
+	    NOTES:
+	    Optionally include js to trigger validation cues (.hasValue, .hasError)
+*/
+	
+		.push-label p ~ div.field,
+        .push-label h2 ~ div.field,
+        .push-label h3 ~ div.field,
+        .push-label h4 ~ div.field,
+		.push-label p ~ div.field ~ div.field,
+        .push-label h2 ~ div.field ~ div.field,
+        .push-label h3 ~ div.field ~ div.field,
+        .push-label h4 ~ div.field ~ div.field {
+			margin-top: 2em;
+		}
+        .push-label .field.select {
+            /*margin-top: 0;*/
+        }
+		.push-label .field {
+			margin-bottom: 2em;
+		}
+		.push-label div.field label {
+			left: 10px;
+			padding: 0; 
+			text-align: left;
+			color: rgb(125,125,125);
+			-moz-transition: top 0.75s, color 0.75s ease-in-out, font-size 0.75s ease-in-out;
+			-webkit-transition: top 0.75s, color 0.75s ease-in-out, font-size 0.75s ease-in-out;
+			-o-transition: top 0.75s, color 0.75s ease-in-out, font-size 0.75s ease-in-out;
+			-ms-transition: top 0.75s, color 0.75s ease-in-out, font-size 0.75s ease-in-out;
+            transition: top 0.75s, color 0.75s ease-in-out, font-size 0.75s ease-in-out;
+		}
+		
+		/* optional validation classing */
+		.push-label div.field label.hasValue {
+			top: -2em;
+			color: rgb(125,125,125);
+			font-size: 90%;
+		}
+	}
+
+/*
+    ========================================
+        ::Validation Classes
+    ========================================
+*/
+.disabled {
+    background: rgb(192, 192, 192);
+    cursor:default !important;
+}
+.disabled:after {
+    border-color: transparent transparent transparent #C0C0C0 ;
+}
+
+.invalid {
+    background:#FFFFDE !important;
+    outline:2px solid #FFFE94 !important;
+}
+
+.error {
+    background: #FF9494 !important;
+}
+.error:after {
+    border-color: transparent transparent transparent #FF9494 !important;
+}
+
+input.error,
+textarea.error,
+.radio label.error {
+    outline:2px solid #FF2E2E !important;
+}
+
+/* status group: prev/next btns; error note */
+.status-group {
+    
+}
+    .status-group .note {
+        clear: both;
+        font-size: 90%;
+        padding-top: 10px;
+        text-align: right;
+    }
+    .status-group .note.highlight {
+        color: rgb(223,91,87);
+    }
+
+
+/*
+    ========================================
+        ::Buttons
+    ========================================
+*/
+.button {
+    background: none repeat scroll 0 0 rgb(8, 164, 111);
+    border: medium none;
+    color: rgb(255, 255, 255);
+    display: block;
+    font-family: "myriad-pro-n4","myriad-pro",sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    /*line-height: 40px;*/
+    margin-bottom: 16px;
+    padding: 10px 12px;
+    text-decoration: none;
+    transition: all 0.35s ease-in-out 0s;
+}
+.button:hover {
+    background: none repeat scroll 0 0 rgb(24, 48, 83);
+}
+.button.button-right {
+    float: right;
+}
+.button.trial-button {
+    background: none repeat scroll 0 0 rgb(215, 137, 83);
+    bottom: -64px;
+    left: 50%;
+    margin-left: -91px;
+    position: absolute;
+    text-align: center;
+    width: 150px;
+}
+.button.trial-button:hover {
+    background: none repeat scroll 0 0 rgb(171, 199, 227);
+    color: rgb(24, 48, 83);
+}
+.button.button-inline {
+    float: left;
+    margin-right: 1em;
+}
+
+/*
+    ========================================
+        ::Pattern: ITT (image-title-text)
+    ========================================
+
+ * A pattern of image - title - text; images are fluid (responsive) by default
+ * 
+ * Layout options:
+ * 		itt_stacked :: stacked - image on top; title below; text last
+ * 		itt_img-left :: image left - image block on left; title and text block on right
+ * 		itt_img-right :: image right - image block on right; title and text block on left
+ * 		
+ * Assumed markup:
+ * 		<div class="itt [itt_option]">
+ * 			<div class="itt_img-content">
+ * 				<img class="itt_img" src="http://placekitten.com/100/100" alt="image description" />
+ * 			</div>
+ * 			<h1|h2|h3|h4|h5|h6|p class="itt_title">Title text</h1|h2|h3|h4|h5|h6|p>
+ * 			<p class="itt_text">Text paragraph</p>
+ * 		</div>
+ * 
+ * 
+ * */
+
+
+.itt {
+	margin-bottom: 1em;
+	position: relative;
+}
+	.itt_img_content { }
+		.itt_img {
+			float: left;
+			margin: 0 1em 0.5em 0;
+		}
+	.itt_title {
+		display: block;
+		margin: 0 0 0.5em;
+	}
+	.itt_text { }
+		.itt_text li {
+			margin-left: 1em;
+		}
+	.itt_text { }
+
+/** stacked **/
+.itt_stacked { }
+	.itt_stacked .itt_img {
+		float: none;
+		margin: 0 0 0.5em;
+		width: 100%;
+	}
+	.itt_stacked .itt_title {
+		display: block;
+		margin-bottom: 0.5em;
+	}
+	.itt_stacked .itt_text { }
+
+/** image left **/
+.itt_img-left {
+	overflow: hidden;
+}
+	.itt_img-left .itt_img-content {
+		width: 50%;
+	}
+		.itt_img-left .itt_img {
+			display: block;
+			margin: 0 5% 0 0;
+			width: 95%;
+		}
+	.itt_img-left .itt_title {
+		display: block;
+		width: 50%;
+		float: right;
+	}
+	.itt_img-left .itt_text {
+		display: block;
+		width: 50%;
+		float: right;
+
+	}
+	.itt_img-left .itt_link {
+		display: block;
+		width: 50%;
+		float: right;
+		clear: right;
+	}
+
+/** image right **/
+.itt_img-right {
+	overflow: hidden;
+}
+	.itt_img-right .itt_img-content {
+		float: right;
+		width: 50%;
+	}
+		.itt_img-right .itt_img {
+			display: block;
+			margin: 0 0 0 5%;
+			width: 95%;
+		}
+	.itt_img-right .itt_title {
+		display: block;
+		width: 50%;
+		float: left;
+	}
+	.itt_img-right .itt_text {
+		display: block;
+		width: 50%;
+		float: left;
+
+	}
+	.itt_img-right .itt_link {
+		display: block;
+		width: 50%;
+		float: left;
+		clear: left;
+	}
+
+
+
+
+	.thumb-aside .cornerstone-hdr,
+	.thumb-aside .cornerstone-desc,
+	.thumb-aside .cornerstone-link {
+		width: 60%;
+	}
+	.thumb-aside .image-content {
+		width: 40%;
+	}
+
+	.icon-aside .cornerstone-hdr,
+	.icon-aside .cornerstone-desc,
+	.icon-aside .cornerstone-link {
+		width: 75%;
+	}
+	.icon-aside .image-content {
+		width: 20%;
+	}
+
+
+
+
+.cornerstone.promobox {
+	margin-bottom: 3em;
+	background: url('/images-nursing/ui/promo-header-rule.jpg') 50% 1em no-repeat;
+	box-shadow: 0 0 21px rgb(40,40,40);
+	box-shadow: 0 0 21px rgba(0,0,0,0.4);
+}
+	.promobox .cornerstone-hdr {
+		padding-top: 3em;
+		font-size: 1.7em;
+	}
+	.promobox .fw_content {
+		padding-bottom: 1em;
+	}
+
+.cornerstone.feature-sample {
+	
+}
+	.cornerstone.feature-sample .cornerstone-hdr {
+	}
+	.cornerstone.feature-sample .image-content {
+		text-align: center;
+	}
+	.cornerstone.feature-sample .cornerstone-image {
+		/* width/height is specific to image icon */
+		width: 100px;
+		height: 145px;
+	}
+
+
+/*
+    ========================================
+        ::Pattern: lists
+    ========================================
+*/
+
+/* using <dl> 
+ * 
+ * <dl class="basic-list">
+ *     <dt>term/label</dt>
+ *     <dd>description/definition</dd>
+ *     ....
+ * </dl>
+ * 
+ */
+.basic-list {
+    overflow: hidden;   
+}
+    .basic-list dt {
+        display: block;
+        float: left;
+        /* usually 150px using 16px font base */
+        width: 9.375em;
+    }
+    .basic-list dd {
+        display: block;
+        /* usually provides 10px margin between dt and dd @ 16px base font */
+        margin-left: 10em;
+    }
+
+    /* "snug" */
+   .basic-list.snug dt {
+       width: 3em;
+   }
+   .basic-list.snug dd {
+       margin-left: 3.625em;
+   }
+
+
+/*
+ * fluid videos
+ */
+.videoWrapper {
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+	z-index: 2;
+    /*transition: all 0.75s ease-in-out;
+    -webkit-transition: all 0.75s ease-in-out;*/
+}
+.videoWrapper iframe,
+.videoWrapper .video {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+	.videoWrapper.expanded {
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		position: fixed;
+		right: 0;
+		top: 0;
+	}
+
+
+
+
+/* Pattern: Images */
+.image-fluid {
+	width: 100%;
+}
+.image-thumb {
+	float: left;
+	margin-right: 1em;
+}
+.image-label {
+	text-align: center;
+}
+/* list of images - center aligned usually */
+.image-list {
+	display: block;
+	width: 100%;
+	margin: 0 0 1em;
+	text-align: center;
+}
+	.image-list .list-item {
+		display: inline;
+		margin: 1em 2em;
+	}
+.image-header {
+	margin-bottom: 1em;
+}
+
+
+/* text helpers */
+.txt-smaller {
+    font-size: 90%;
+}
+
+
+
+/*
+ * helper classes
+ */
+
+.hidden { display: none; }
+
+.even-columns {
+    overflow: hidden;
+}
+    .even-columns > * {
+        margin-bottom: -20000px;
+        padding-bottom: 20000px;
+    }
+
+
+

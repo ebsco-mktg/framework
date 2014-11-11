@@ -1,0 +1,1810 @@
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2.125em;
+  margin: 0 0 0.8235em;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+
+/*
+    ========================================
+        Table of Contents
+    ========================================
+
+    ::Assumed Markup
+    ::Base Styles
+    
+    ::Global Width
+    
+    ::4 Columns
+    ::6 Columns
+    ::8 Columns
+    ::9 Columns
+    ::12 Columns
+    ::16 Columns
+    
+    ::Clearfix
+
+
+
+    ========================================
+        ::Assumed Markup
+    ========================================
+
+    <body>
+        <div class="page">
+            <header></header>
+            <section class="container">
+                <div class="inner">
+                    <div class="content">
+                        <div class="inner">
+                            <!-- content goes here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer></footer>
+        </div>
+    </body>
+
+    NOTES:
+    ========================================
+    .page
+    Contains any overflow / offscreen elements
+    
+    .container
+    Defines large <section>'s
+    
+    .container > .inner
+    Non-padded, centered fluid width block with clearfix
+    
+    .content
+    A left floating element
+    
+    .content > .inner
+    Padded block with clearfix
+    
+    .content > .inner *:first-child
+    Removes the top margin on first element
+
+
+
+    ========================================
+        ::Base Styles
+    ========================================
+*/
+    .page  {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .container {
+        position: relative;
+    }
+    
+    .container > .inner {
+        max-width: 1280px;
+        min-width: 240px;
+        margin: auto;
+    }
+    
+    .content {
+        float:left;
+    }
+    
+    .content > .inner {
+        padding: 0 10px;
+    }
+    
+    .content > .inner *:first-child {
+        /*margin-top: 0;*/
+    }
+
+/*
+    ========================================
+        ::Global Width
+    ========================================
+*/
+    .size1of1 { width: 100%; }
+    
+    
+
+/*
+    ========================================
+        ::4 Columns
+    ========================================
+*/
+    .size1of4 { width: 25%; }
+    .size2of4 { width: 50%; }
+    .size3of4 { width: 75%; }
+    .size4of4 { width: 100%; }
+    
+    .shift1of4 { margin-left: 25%; }
+    .shift2of4 { margin-left: 50%; }
+    .shift3of4 { margin-left: 75%; }
+    .shift4of4 { margin-left: 100%; }
+    
+    .hide6,
+    .hide8,
+    .hide9,
+    .hide12,
+    .hide16 {
+        display: block !important;
+    }
+
+    .hide4 {
+        display: none !important;
+    }
+    
+    .wrap4 { float: none; }
+    .wrap6,
+    .wrap8,
+    .wrap9,
+    .wrap12,
+    .wrap16 { float: left; }
+
+
+
+/*
+    ========================================
+        ::6 Columns
+    ========================================
+*/
+    @media screen and (min-width: 321px) and (max-width: 480px) {
+    
+        .size1of6 { width: 16.66666%; }
+        .size2of6 { width: 33.33333%; }
+        .size3of6 { width: 50%; }
+        .size4of6 { width: 66.66666%; }
+        .size5of6 { width: 83.33333%; }
+        .size6of6 { width: 100%; }
+    
+        .shift1of6 { margin-left: 16.66666%; }
+        .shift2of6 { margin-left: 33.33333%; }
+        .shift3of6 { margin-left: 50%; }
+        .shift4of6 { margin-left: 66.66666%; }
+        .shift5of6 { margin-left: 83.33333%; }
+        .shift6of6 { margin-left: 100%; }
+    
+        .hide4,
+        .hide8,
+        .hide9,
+        .hide12,
+        .hide16 {
+            display: block !important;
+        }
+    
+        .hide6 {
+            display: none !important;
+        }
+        
+    .wrap6 { float: none; }
+    .wrap4,
+    .wrap8,
+    .wrap9,
+    .wrap12,
+    .wrap16 { float: left; }
+
+    }
+
+
+
+/*
+    ========================================
+        ::8 Columns
+        ::9 Columns
+    ========================================
+*/
+    @media screen and (min-width: 481px) and (max-width: 720px) {
+        /* ::8 Columns */
+        .size1of8 { width: 12.5%; }
+        .size2of8 { width: 25%; }
+        .size3of8 { width: 37.5%; }
+        .size4of8 { width: 50%; }
+        .size5of8 { width: 62.5%; }
+        .size6of8 { width: 75%; }
+        .size7of8 { width: 87.5%; }
+        .size8of8 { width: 100%; }
+        
+        .shift1of8 { margin-left: 12.5%; }
+        .shift2of8 { margin-left: 25%; }
+        .shift3of8 { margin-left: 37.5%; }
+        .shift4of8 { margin-left: 50%; }
+        .shift5of8 { margin-left: 62.5%; }
+        .shift6of8 { margin-left: 75%; }
+        .shift7of8 { margin-left: 87.5%; }
+        .shift8of8 { margin-left: 100%; }
+        
+        
+        
+        /* ::9 Columns */
+        .size1of9 { width: 11.1% }
+        .size2of9 { width: 22.2% }
+        .size3of9 { width: 33.3% }
+        .size4of9 { width: 44.4% }
+        .size5of9 { width: 55.5% }
+        .size6of9 { width: 66.6% }
+        .size7of9 { width: 77.7% }
+        .size8of9 { width: 88.8% }
+        .size9of9 { width: 100% }
+
+        .shift1of9 { margin-left: 11.1% }
+        .shift2of9 { margin-left: 22.2% }
+        .shift3of9 { margin-left: 33.3% }
+        .shift4of9 { margin-left: 44.4% }
+        .shift5of9 { margin-left: 55.5% }
+        .shift6of9 { margin-left: 66.6% }
+        .shift7of9 { margin-left: 77.7% }
+        .shift8of9 { margin-left: 88.8% }
+        .shift9of9 { margin-left: 100% }
+    
+        .hide4,
+        .hide6,
+        .hide12,
+        .hide16 {
+            display: block !important;
+        }
+    
+        .hide8,
+        .hide9 {
+            display: none !important;
+        }
+
+    .wrap8,
+    .wrap9 { float: none; }
+    .wrap4,
+    .wrap6,
+    .wrap12,
+    .wrap16 { float: left; }
+    
+    }
+
+
+
+/*
+    ========================================
+        ::12 Columns
+    ========================================
+*/
+    @media screen and (min-width: 721px) and (max-width: 960px) {
+
+        .size1of12 { width: 8.33333%; }
+        .size2of12 { width: 16.66666%; }
+        .size3of12 { width: 25%; }
+        .size4of12 { width: 33.33333%; }
+        .size5of12 { width: 41.66666%; }
+        .size6of12 { width: 50%; }
+        .size7of12 { width: 58.33333%; }
+        .size8of12 { width: 66.66666%; }
+        .size9of12 { width: 75%; }
+        .size10of12 { width: 83.33333%; }
+        .size11of12 { width: 91.66666%; }
+        .size12of12 { width: 100%; }
+
+        .shift1of12 { margin-left: 8.33333%; }
+        .shift2of12 { margin-left: 16.66666%; }
+        .shift3of12 { margin-left: 25%; }
+        .shift4of12 { margin-left: 33.33333%; }
+        .shift5of12 { margin-left: 41.66666%; }
+        .shift6of12 { margin-left: 50%; }
+        .shift7of12 { margin-left: 58.33333%; }
+        .shift8of12 { margin-left: 66.66666%; }
+        .shift9of12 { margin-left: 75%; }
+        .shift10of12 { margin-left: 83.33333%; }
+        .shift11of12 { margin-left: 91.66666%; }
+        .shift12of12 { margin-left: 100%; }
+
+        .size1of8_12 { width: 12.5%; }
+        .size2of8_12 { width: 25%; }
+        .size3of8_12 { width: 37.5%; }
+        .size4of8_12 { width: 50%; }
+        .size5of8_12 { width: 62.5%; }
+        .size6of8_12 { width: 75%; }
+        .size7of8_12 { width: 87.5%; }
+        .size8of8_12 { width: 100%; }
+
+        .hide4,
+        .hide6,
+        .hide8,
+        .hide9,
+        .hide16 {
+            display: block !important;
+        }
+
+        .hide12 {
+            display: none !important;
+        }
+
+    .wrap12 { float: none; }
+    .wrap4,
+    .wrap6,
+    .wrap8,
+    .wrap9,
+    .wrap16 { float: left; }
+    
+    }
+
+
+
+/*
+    ========================================
+        ::16 Columns
+    ========================================
+*/
+    @media screen and (min-width: 961px) {
+
+        .size1of16 { width: 6.25%; }
+        .size2of16 { width: 12.5%; }
+        .size3of16 { width: 18.75%; }
+        .size4of16 { width: 25%; }
+        .size5of16 { width: 31.25%; }
+        .size6of16 { width: 37.5%; }
+        .size7of16 { width: 43.75%; }
+        .size8of16 { width: 50%; }
+        .size9of16 { width: 56.25%; }
+        .size10of16 { width: 62.25%; }
+        .size11of16 { width: 68.75%; }
+        .size12of16 { width: 75%; }
+        .size13of16 { width: 81.25%; }
+        .size14of16 { width: 87.5%; }
+        .size15of16 { width: 93.75%; }
+        .size16of16 { width: 100%; }
+
+        .shift1of16 { margin-left: 6.25%; }
+        .shift2of16 { margin-left: 12.5%; }
+        .shift3of16 { margin-left: 18.75%; }
+        .shift4of16 { margin-left: 25%; }
+        .shift5of16 { margin-left: 31.25%; }
+        .shift6of16 { margin-left: 37.5%; }
+        .shift7of16 { margin-left: 43.75%; }
+        .shift8of16 { margin-left: 50%; }
+        .shift9of16 { margin-left: 56.25%; }
+        .shift10of16 { margin-left: 62.25%; }
+        .shift11of16 { margin-left: 68.75%; }
+        .shift12of16 { margin-left: 75%; }
+        .shift13of16 { margin-left: 81.25%; }
+        .shift14of16 { margin-left: 87.5%; }
+        .shift15of16 { margin-left: 93.75%; }
+        .shift16of16 { margin-left: 100%; }
+
+        .size1of10_16 { width: 10%; }
+        .size2of10_16 { width: 20%; }
+        .size3of10_16 { width: 30%; }
+        .size4of10_16 { width: 40%; }
+        .size5of10_16 { width: 50%; }
+        .size6of10_16 { width: 60%; }
+        .size7of10_16 { width: 70%; }
+        .size8of10_16 { width: 80%; }
+        .size9of10_16 { width: 90%; }
+        .size10of10_16 { width: 100%; }
+
+
+
+        .hide4,
+        .hide6,
+        .hide8
+        .hide9,
+        .hide12 {
+            display: block !important;
+        }
+
+        .hide16 {
+            display: none !important;
+        }
+
+    .wrap16 { float: none; }
+    .wrap4,
+    .wrap6,
+    .wrap8,
+    .wrap9,
+    .wrap12 { float: left; }
+    
+    }
+
+
+
+/*
+    ========================================
+        ::Clearfix
+    ========================================
+*/
+    .group,
+    .container > .inner,
+    .content > .inner {
+        *zoom: 1;
+    }
+    .group:before,
+    .group:after,
+    .container > .inner:before,
+    .container > .inner:after,
+    .content > .inner:before,
+    .content > .inner:after {
+        display: table;
+        content: " ";
+    }
+    .group:after,
+    .container > .inner:after,
+    .content > .inner:after {
+        clear: both;
+    }
+
+
+/*
+    ========================================
+        Table of Contents
+    ========================================
+
+        ::Navigation
+        ::Form Behavior Classes
+        ::Validation Classes
+        ::Buttons
+
+*/
+
+/* base font styles */
+html {
+    font-family: "myriad-pro-n3", "myriad-pro", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.valign {
+    display:table;
+    width:100%;
+}
+
+.valign > .inner {
+    display:table-cell;
+    vertical-align:middle;
+}
+
+/* vertical-align polyfill for IE7 */
+.lt-ie8 .valign > .inner {
+    margin-top: expression(this.offsetHeight < this.parentNode.offsetHeight ? parseInt((this.parentNode.offsetHeight - this.offsetHeight) / 2) + "px" : "0");
+}
+
+hr.vertical {
+    width: 1px;
+    height: 1px;
+    margin: 0 auto -2000px;
+    padding: 0 0 2000px;
+    background: rgb(177,177,177);
+    border: 0;
+}
+
+/*
+    ========================================
+        ::Navigation
+    ========================================
+*/
+/**
+ * markup:
+ * 
+ * <nav id="siteNav" class="skin_main-nav">
+    <a href="#main-menu" id="mobile-menu"></a>
+    <ul class="top-nav group">
+ *     <li class="drop">
+ *       <a href="">Level One Item</a>
+ *       <ul class="sub-menu">
+ *         <li>
+ *           <a href="">Level Two Item</a>
+ *         </li>
+ *         [ repeat <li> as needed ]
+ *       </ul>
+ *     </li>
+ *     <li>
+ *       <a href="">Level One Item</a>
+ *     </li>
+ *     [ repeat either <li> as needed ]
+ *   </ul>
+ * </nav>
+ */
+
+
+/* nav-specific skinning classes
+ * apply skinning class to ultimate nav patent (usually <nav>) )
+ */
+
+/* default font-sizing */
+.skin_main-nav {
+    font-family: "myriad-pro-n4", "myriad-pro", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+/* mobile skins */
+.skin_main-nav #mobile-menu {
+    background-color: transparent;
+    border: none;
+}
+    .skin_main-nav #mobile-menu.isOpen,
+    .skin_main-nav #mobile-menu:focus,
+    .skin_main-nav #mobile-menu:hover {
+        background-color: rgb(12, 67, 69);
+    }
+.skin_main-nav .top-nav {
+    background-color: rgb(12, 67, 69);
+    color: rgb(255, 255, 255);
+}
+    .skin_main-nav .top-nav a {
+        border-bottom: 1px solid rgb(19, 94, 97);
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+    }
+    .skin_main-nav .top-nav li:hover,
+    .skin_main-nav .top-nav a:hover,
+    .skin_main-nav .top-nav li:focus,
+    .skin_main-nav .top-nav a:focus {
+        background-color: rgb(19, 94, 97);
+        text-decoration: none;
+    }
+
+#siteNav { 
+    float: left;
+    /* top margin give space for when cta btn is on same horizontal as site logo */
+    margin-top: 35px;
+    width: 100%;
+}
+
+#mobile-menu {
+    background: url(../img/mobile-menu-icon_1.png) 50% 50% no-repeat transparent;
+    display: block;
+    float: left;
+    height: 19px;
+    margin-top: -38px;
+    padding: 10px 20px;
+    width: 34px;
+}
+
+.top-nav {
+    clear: left;
+    display: block;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    /* transition */
+    -webkit-transition: max-height 0.5s ease-in-out, opacity 0.35s ease-in-out;
+    transition: max-height 0.5s ease-in-out, opacity 0.35s ease-in-out;
+}
+    .sub-menu { display: none; }
+    
+    .top-nav li { padding: 0 10px; }
+    .top-nav a {
+        display: block;
+        padding: 25px 0 21px;
+    }
+
+/* open state */
+#mobile-menu.isOpen,
+#mobile-menu:focus,
+#mobile-menu:hover {
+    background: url(../img/mobile-menu-icon_2.png) 50% 50% no-repeat transparent;
+}
+#mobile-menu.isOpen ~ .top-nav,
+#mobile-menu:focus ~ .top-nav,
+#mobile-menu ~ .top-nav:focus { 
+    max-height: 500px;
+}
+
+/* nav back button */
+.nav-back {
+    clear: left;
+    display: none;
+    float: left;
+    margin: 16px 0 16px 16px;
+}
+    .nav-back a {
+        border: none;
+        display: block;
+        height: 32px;
+        line-height: 32px;
+        padding: 0 10px;
+        position: relative;
+    }
+    .nav-back a:before {
+        border-color: transparent rgb(12, 67, 69) transparent transparent;
+        border-style: solid;
+        border-width: 16px 16px 16px 0;
+        content: "";
+        display: block;
+        height: 0;
+        left: 0;
+        margin-left: -16px;
+        margin-top: -16px;
+        position: absolute;
+        top: 50%;
+        width: 0;
+    }
+    .nav-back a:hover { border: none; }
+    
+.nav-back.active {
+    display: block;
+}
+
+/* ie7 fallback - no sub-menus */
+.lt-ie8 .top-nav .sub-menu {
+    display: none;
+}
+
+/* 2-col drop menu on tablet size */
+@media screen and (min-width: 481px) and (max-width: 720px) {
+    .top-nav > li {
+        float: left;
+        width: 45%;
+    }
+}
+
+
+/* show horizontal nav at tablet sizes */
+@media screen and (min-width: 721px) {
+
+    /* desktop skins */
+    .skin_main-nav .top-nav { 
+        background-color: transparent;
+    }
+        .skin_main-nav .top-nav a {
+            border-bottom: 1px solid transparent;
+            color: rgb(59, 59, 59);
+            text-decoration: none;
+        }
+        .skin_main-nav .top-nav li:hover,
+        .skin_main-nav .top-nav a:hover,
+        .skin_main-nav .top-nav li:focus,
+        .skin_main-nav .top-nav a:focus,
+        .skin_main-nav .top-nav li.active > a,
+        .skin_main-nav .top-nav li.current > a,
+        .skin_main-nav .top-nav .selected > a {
+            background-color: transparent;
+            text-decoration: underline;
+        }
+    .skin_main-nav .sub-menu {
+        background-color: rgb(12, 67, 69);
+    }
+        .skin_main-nav .sub-menu a {
+            border-right: 1px solid rgb(255, 255, 255);
+            color: rgb(255, 255, 255);
+        }
+        .skin_main-nav .sub-menu li:last-child a {
+            border-color: transparent;
+        }
+
+        /* css triangle pointer above each sub menu */
+        .skin_main-nav .drop > a:before,
+        .skin_main-nav .drop.active > a:before,
+        .skin_main-nav .drop.current > a:before,
+        .cssPointer {
+            border-color: transparent transparent rgb(12, 67, 69) transparent;
+            border-style: solid;
+            border-width: 0 15px 15px;
+            content: "";
+            display: block;
+            height: 0;
+            left: 50%;
+            margin-left: -15px;
+            opacity: 0;
+            position: absolute;
+            top: 43px;
+            width: 0;
+        }
+        .skin_main-nav .drop:hover > a:before,
+        .skin_main-nav .drop:focus > a:before,
+        .skin_main-nav .drop.active > a:before,
+        .skin_main-nav .drop.current > a:before {
+            opacity: 1;
+            top: 38px;
+            /* transition */
+           -webkit-transition: opacity 0.25s ease-in-out 0.5s, top 0.5s ease-in-out 0.5s;
+           transition: opacity 0.25s ease-in-out 0.5s, top 0.5s ease-in-out 0.5s;
+        }
+
+
+    #siteNav {
+        margin-top: 1em;
+    }
+    #mobile-menu { display: none; }
+    .top-nav {
+        max-height: 500px;
+        overflow: visible;
+    }
+        /* default list items
+         * options: .drop, .wrap-block, .after-wrap
+         */
+        .top-nav li {
+            display: inline-block;
+            float: left;
+            line-height: 42px;
+            list-style: none;
+            margin: 0;
+            overflow: visible;
+            padding: 0;
+            width: auto;
+        }
+        /*.lt-ie9 .top-nav li {
+            display: block;
+            float: left;
+        }*/
+        .top-nav a { padding: 0; }
+        .top-nav li > a {
+            padding: 0 20px;
+        }
+        
+        .top-nav li:first-child > a,
+        .top-nav li.wrap-block > a {
+            padding-left: 0;
+        }
+        
+        
+        /* .drop list items */
+        
+        /*.drop.current {
+            height: 104px;
+        }
+        .drop.double {
+            height: 158px;
+        }
+        */
+            .drop > a {
+                position: relative;
+            }
+            /* spacer element 
+             * spacer is used to create the space for the level 2 nav to appear
+             */ 
+            .top-nav > li > a:after,
+            .navSpacer {
+                content: "";
+                clear: both;
+                display: block;
+                height: 0;
+                position: relative;
+                width: 100%;
+                /* transition */
+                -webkit-transition: height 0.5s ease-in-out 0.4s;
+                transition: height 0.5s ease-in-out 0.4s;
+            }
+            /* IE needs inline */
+            .navSpacer { display: block; float: left; }
+            
+            /* spacer element hover state */
+            .drop:hover > a:after,
+            .drop > a:hover:after,
+            .drop:focus > a:after,
+            .drop > a:focus:after,
+            .drop.active > a:after,
+            .drop.current > a:after {
+                height: 61px;
+                /* transition */
+                -webkit-transition: height 0.5s ease-in-out 0s;
+                transition: height 0.5s ease-in-out 0s;
+            }
+            /* spacer element double height */ 
+            .drop:hover > a.double-space:after,
+            .drop > a.double-space:hover:after,
+            .drop:focus > a.double-space:after,
+            .drop > a.double-space:focus:after,
+            .drop.active > a.double-space:after,
+            .drop.current > a.double-space:after,
+            .navSpacer.double-space { 
+                height: 114px;
+                -webkit-transition: height 0.5s ease-in-out 0s;
+                transition: height 0.5s ease-in-out 0s;
+            }
+            
+
+        /* removing for browsers with no-csstransitions */
+        .no-csstransitions .skin_main-nav .drop > a:before,
+        .no-csstransitions .top-nav > li > a:after {
+            display: none;
+            height: 0;
+            width: 0;
+        }
+            
+            
+            /* default sub-menu */
+            .sub-menu {
+                display: none;
+                left: 0;
+                margin: 0 -10000px 0;
+                padding: 0 10000px;
+                position: absolute;
+                top: 50px;
+                width: 100%;
+                z-index: 0;
+            }
+                /* default sub-menu list items */
+                .sub-menu > li { 
+                    /*float: none;*/
+                    padding: 0;
+                }
+                .lt-ie9 .sub-menu > li {
+                    display: block;
+                    float: left;
+                }
+                .sub-menu a {
+                    line-height: 0.8;
+                    margin: 20px 0;
+                    padding: 0 20px;
+                }
+                /* note: triangle pointer css is located with skins */
+            
+            /* sub-menu hover state */
+            .drop:hover .sub-menu,
+            .drop.active .sub-menu,
+            .drop.current .sub-menu,
+            .drop > a:hover + .sub-menu,
+            .drop:focus .sub-menu,
+            .drop > a:focus + .sub-menu {
+                z-index: 2;
+            }
+            
+            .active .sub-menu,
+            .current .sub-menu {
+                display: block;
+            }
+        
+        /* .wrap-block, .after-wrap list items */
+        .wrap-block { clear: left; }
+        .wrap-block,
+        .after-wrap { position: relative; }
+            
+            /* .wrap-block, .after-wrap sub-menu */
+            .wrap-block .sub-menu,
+            .after-wrap .sub-menu { white-space: nowrap; }
+            
+        .nav-back.active {
+            display: none;
+        }
+}
+
+
+
+/*
+    ========================================
+        ::Form Behavior Classes
+    ========================================
+    
+    Assumed Markup:
+    
+    <form class="form-behavior">
+        <div class="field">
+            <label for="name-id">Your Label</label>
+            <input type="text / email / tel" name="" id="name-id" class="required [optional]" />
+        </div>
+        
+        <div class="field radio">
+            <label for="name-id">
+                <input type="radio" id="name-id" />Your Label
+            </label>
+        </div>
+    </form>
+    
+    NOTES:
+    form-behavior class required for label fading and validation
+    the 'for' attribute is required to traverse between label and input / textarea
+*/
+div.field {
+    position:relative;
+    margin:0 0 2%;
+    padding:0;
+    border:0;
+}
+
+div.radio {
+    height:30px;
+    margin:0 0 6px 0;
+}
+
+div.field label {
+    cursor:text;
+}
+
+div.radio label {
+    cursor:pointer;
+}
+
+.js div.field label {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    padding:0 1%;
+    line-height:32px;
+}
+
+
+.js div.radio label {
+    padding: 0 15px 0 0;
+    line-height:30px;
+    transition:background .2s ease-out;
+    -moz-transition:background .2s ease-out;
+    -webkit-transition:background .2s ease-out;
+    -ms-transition:background .2s ease-out;
+    -o-transition:background .2s ease-out;
+}
+
+div.field input[type=text],
+div.field input[type=email],
+div.field input[type=tel],
+div.field textarea {
+    width:98%;
+    height:32px;
+    line-height:32px;
+    margin:0;
+    padding:0 1%;
+    border:0px;
+    background:#fff;
+    outline: 1px solid rgb(154,154,154);
+    transition:background .2s ease-out;
+    -moz-transition:background .2s ease-out;
+    -webkit-transition:background .2s ease-out;
+    -ms-transition:background .2s ease-out;
+    -o-transition:background .2s ease-out;
+}
+
+div.field input[type=email]:invalid,
+div.field input[type=email]:-moz-ui-invalid {
+    outline:0px none;
+    box-shadow:none;
+}
+
+div.field input[type=radio] {
+    float:left;
+    height:30px;
+    margin:0 5px 0 0;
+}
+
+div.field input[type=file] {
+    display:none;
+    visibility:hidden;
+}
+
+textarea {
+    width:98%;
+    padding:7px 1%;
+    line-height:26px;
+    border:0;
+    resize: vertical;
+}
+div.select {
+    overflow: hidden;
+}
+div.select select {
+    -moz-appearance: none;
+    background: none repeat scroll 0 0 transparent;
+    border: 1px solid rgb(154, 154, 154);
+    padding: 4px 0 0 1%;
+    position: relative;
+    width: 110%;
+    z-index: 1;
+}
+div.select select.disabled {
+    background: rgb(154,154,154);
+}
+div.select.disabled select {
+    color: rgb(153, 153, 153) !important;
+}
+.js div.select.disabled select option {
+    display: none;
+}
+div.select.disabled:hover span, div.select span {
+    background: none repeat scroll 0 0 rgb(154, 154, 154);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    height: 32px;
+    line-height: 32px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 30px;
+}
+div.select:hover span {
+    background: none repeat scroll 0 0 rgb(40, 76, 105);
+}
+option:checked {
+    /*background: rgb(40, 76, 105);*/
+}
+
+
+/*** form labels (new version of framework) ***/
+
+
+select {
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+}
+    select option {
+        /*height: 40px;
+        line-height: 40px;*/
+        font-size: 14px;
+    }
+
+div.checkbox {
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+    .form-behavior div.field.checkbox label {
+        line-height: 30px;
+        padding-left: 16px;
+    }
+
+@media screen and (min-width: 721px) {
+    select option {
+        /*height: 40px;
+        line-height: 40px;*/
+        font-size: 16px;
+    }
+    
+}
+
+
+/*
+    PUSH-LABEL :: extends form base
+        
+        Assumed markup:
+        
+        <form class="form-behavior push-label">
+            <div class="field">
+                <label for="name-id">Your Label</label>
+                <input type="text / email / tel" name="" id="name-id" class="required [optional]" />
+            </div>
+        </form>     
+        
+        NOTES:
+        Optionally include js to trigger validation cues (.hasValue, .hasError)
+*/
+    
+        .push-label p ~ div.field,
+        .push-label h2 ~ div.field,
+        .push-label p ~ div.field ~ div.field,
+        .push-label h2 ~ div.field ~ div.field {
+            margin-top: 40px;
+        }
+        .push-label .field {
+            margin-bottom: 40px;
+        }
+        .push-label div.field label {
+            left: 10px;
+            padding: 0; 
+            text-align: left;
+            color: inherit;
+            transition: top 0.75s, color 0.75s ease-in-out;
+            -moz-transition: top 0.75s, color 0.75s ease-in-out;
+            -webkit-transition: top 0.75s, color 0.75s ease-in-out;
+            -o-transition: top 0.75s, color 0.75s ease-in-out;
+            -ms-transition: top 0.75s, color 0.75s ease-in-out;
+        }
+        
+        /* optional validation classing */
+        .push-label div.field label.hasValue {
+            top: -35px;
+            color: rgb(125,125,125);
+        }
+    }
+
+/*
+    ========================================
+        ::Validation Classes
+    ========================================
+*/
+.disabled {
+    background:#C0C0C0;
+    cursor:default !important;
+}
+.disabled:after {
+    border-color: transparent transparent transparent #C0C0C0 ;
+}
+
+.invalid {
+    background:#FFFFDE !important;
+    outline:2px solid #FFFE94 !important;
+}
+
+.error {
+    background: #FF9494 !important;
+}
+.error:after {
+    border-color: transparent transparent transparent #FF9494 !important;
+}
+
+input.error,
+textarea.error,
+.radio label.error {
+    outline:2px solid #FF2E2E !important;
+}
+
+
+/*
+    ========================================
+        ::Buttons
+    ========================================
+*/
+.button {
+    background: none repeat scroll 0 0 rgb(8, 164, 111);
+    color: rgb(255, 255, 255);
+    display: block;
+    font-family: "myriad-pro-n4","myriad-pro",sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    /*line-height: 40px;*/
+    margin-bottom: 16px;
+    padding: 10px 12px;
+    text-decoration: none;
+    transition: all 0.35s ease-in-out 0s;
+}
+.button:hover {
+    background: none repeat scroll 0 0 rgb(24, 48, 83);
+}
+.button.button-right {
+    float: right;
+}
+.button.trial-button {
+    background: none repeat scroll 0 0 rgb(215, 137, 83);
+    bottom: -64px;
+    left: 50%;
+    margin-left: -91px;
+    position: absolute;
+    text-align: center;
+    width: 150px;
+}
+.button.trial-button:hover {
+    background: none repeat scroll 0 0 rgb(171, 199, 227);
+    color: rgb(24, 48, 83);
+}
+.button.button-inline {
+    float: left;
+    margin-right: 1em;
+}
+
+/*
+    ========================================
+        ::Pattern: ITT (image-title-text)
+    ========================================
+
+ * A pattern of image - title - text; images are fluid (responsive) by default
+ * 
+ * Layout options:
+ *      itt_stacked :: stacked - image on top; title below; text last
+ *      itt_img-left :: image left - image block on left; title and text block on right
+ *      itt_img-right :: image right - image block on right; title and text block on left
+ *      
+ * Assumed markup:
+ *      <div class="itt [itt_option]">
+ *          <div class="itt_img-content">
+ *              <img class="itt_img" src="http://placekitten.com/100/100" alt="image description" />
+ *          </div>
+ *          <h1|h2|h3|h4|h5|h6|p class="itt_title">Title text</h1|h2|h3|h4|h5|h6|p>
+ *          <p class="itt_text">Text paragraph</p>
+ *      </div>
+ * 
+ * 
+ * */
+
+
+.itt {
+    margin-bottom: 1em;
+    position: relative;
+}
+    .itt_img_content { }
+        .itt_img {
+            float: left;
+            margin: 0 1em 0.5em 0;
+        }
+    .itt_title {
+        display: block;
+        margin: 0 0 0.5em;
+    }
+    .itt_text { }
+        .itt_text li {
+            margin-left: 1em;
+        }
+    .itt_text { }
+
+/** stacked **/
+.itt_stacked { }
+    .itt_stacked .itt_img {
+        float: none;
+        margin: 0 0 0.5em;
+        width: 100%;
+    }
+    .itt_stacked .itt_title {
+        display: block;
+        margin-bottom: 0.5em;
+    }
+    .itt_stacked .itt_text { }
+
+/** image left **/
+.itt_img-left {
+    overflow: hidden;
+}
+    .itt_img-left .itt_img-content {
+        width: 50%;
+    }
+        .itt_img-left .itt_img {
+            display: block;
+            margin: 0 5% 0 0;
+            width: 95%;
+        }
+    .itt_img-left .itt_title {
+        display: block;
+        width: 50%;
+        float: right;
+    }
+    .itt_img-left .itt_text {
+        display: block;
+        width: 50%;
+        float: right;
+
+    }
+    .itt_img-left .itt_link {
+        display: block;
+        width: 50%;
+        float: right;
+        clear: right;
+    }
+
+/** image right **/
+.itt_img-right {
+    overflow: hidden;
+}
+    .itt_img-right .itt_img-content {
+        float: right;
+        width: 50%;
+    }
+        .itt_img-right .itt_img {
+            display: block;
+            margin: 0 0 0 5%;
+            width: 95%;
+        }
+    .itt_img-right .itt_title {
+        display: block;
+        width: 50%;
+        float: left;
+    }
+    .itt_img-right .itt_text {
+        display: block;
+        width: 50%;
+        float: left;
+
+    }
+    .itt_img-right .itt_link {
+        display: block;
+        width: 50%;
+        float: left;
+        clear: left;
+    }
+
+
+
+
+    .thumb-aside .cornerstone-hdr,
+    .thumb-aside .cornerstone-desc,
+    .thumb-aside .cornerstone-link {
+        width: 60%;
+    }
+    .thumb-aside .image-content {
+        width: 40%;
+    }
+
+    .icon-aside .cornerstone-hdr,
+    .icon-aside .cornerstone-desc,
+    .icon-aside .cornerstone-link {
+        width: 75%;
+    }
+    .icon-aside .image-content {
+        width: 20%;
+    }
+
+
+
+
+.cornerstone.promobox {
+    margin-bottom: 3em;
+    background: url('/images-nursing/ui/promo-header-rule.jpg') 50% 1em no-repeat;
+    box-shadow: 0 0 21px rgb(40,40,40);
+    box-shadow: 0 0 21px rgba(0,0,0,0.4);
+}
+    .promobox .cornerstone-hdr {
+        padding-top: 3em;
+        font-size: 1.7em;
+    }
+    .promobox .fw_content {
+        padding-bottom: 1em;
+    }
+
+.cornerstone.feature-sample {
+    
+}
+    .cornerstone.feature-sample .cornerstone-hdr {
+    }
+    .cornerstone.feature-sample .image-content {
+        text-align: center;
+    }
+    .cornerstone.feature-sample .cornerstone-image {
+        /* width/height is specific to image icon */
+        width: 100px;
+        height: 145px;
+    }
+
+
+
+/*
+ * fluid videos
+ */
+.videoWrapper {
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+    z-index: 2;
+    /*transition: all 0.75s ease-in-out;
+    -webkit-transition: all 0.75s ease-in-out;*/
+}
+.videoWrapper iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+    .videoWrapper.expanded {
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+
+
+
+
+/* Pattern: Images */
+.image-fluid {
+    width: 100%;
+}
+.image-thumb {
+    float: left;
+    margin-right: 1em;
+}
+.image-label {
+    text-align: center;
+}
+/* list of images - center aligned usually */
+.image-list {
+    display: block;
+    width: 100%;
+    margin: 0 0 1em;
+    text-align: center;
+}
+    .image-list .list-item {
+        display: inline;
+        margin: 1em 2em;
+    }
+.image-header {
+    margin-bottom: 1em;
+}
+
+
