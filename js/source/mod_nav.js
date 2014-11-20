@@ -519,3 +519,5 @@ var NAV = (function( pub ) {
 	
 }(NAV || {}));
 
+NAV.init();
+
