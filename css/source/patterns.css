@@ -499,7 +499,13 @@ div.radio label {
 }
 .js div.radio-group label {
     float: left;
+    margin-left: 10px;
     position: relative;
+}
+.js div.radio-group input[type="radio"] {
+    left: 0;
+    position: absolute;
+    top: 0;
 }
 
 
@@ -672,7 +678,7 @@ div.checkbox {
 			color: rgb(125,125,125);
 			font-size: 90%;
 		}
-	}
+	/*}*/
 
 /*
     ========================================
