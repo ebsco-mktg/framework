@@ -728,15 +728,29 @@ var PROGRESS = (function( pub ) {
 		 */
 		
 		var widthEach = 100 / (numPanels),
-			currWidth = 0;
+			currWidth = 0,
+			// getting lang attr so we can translate the text; TODO: ideally the text is outside of this js file
+			lang = document.documentElement.lang !== '' ? document.documentElement.lang : 'en',
+			dictionary = {
+				en : {
+					step : 'step',
+					of : 'of'
+				},
+				es : {
+					step : 'paso',
+					of : 'de'
+				}
+			};
 		var currPanel = getCurrentPanel();
+		
+		
 		
 		if ( currPanel.idx !== -1 ) {
 			//if ( currPanel.idx === (numPanels - 1) ) {
 				//$('.indicator').css('width', '100%').text('last step');
 			//} else {
 				currWidth = (currPanel.idx + 1) * widthEach;
-				$('.indicator').css('width', currWidth + '%').text('step ' + new Number(currPanel.idx + 1) + ' of ' + numPanels + ' ');
+				$('.indicator').css('width', currWidth + '%').text( dictionary[lang].step + ' ' + new Number(currPanel.idx + 1) + ' ' + dictionary[lang].of + ' ' + numPanels + ' ');
 			//}
 		}
 				
