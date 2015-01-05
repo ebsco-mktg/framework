@@ -28,13 +28,13 @@ var EIS = (function (pub) {
 				'JSON',
 				'FL' ],
 			source : [ 
-				'//www.ebsco.com/apps/global/vendor/jquery-1.9.1.min.js', 
-				'//www.ebsco.com/apps/global/vendor/froogaloop.js',
-				'//www.ebsco.com/apps/global/ada/js/source/mod_google.js?20140822',
-				'//www.ebsco.com/apps/global/leadtracking.ugly.js?20140929',
-				'//www.ebsco.com/apps/global/ada/js/source/mod_validate.js?20140822',
-				'//www.ebsco.com/apps/global/vendor/json2.ugly.js',
-				'//www.ebsco.com/apps/global/ada/js/source/mod_frameloop.js?20141016' ]
+				'https://www.ebsco.com/apps/global/vendor/jquery-1.9.1.min.js', 
+				'https://www.ebsco.com/apps/global/vendor/froogaloop2.min.js',
+				'https://www.ebsco.com/apps/global/ada/js/mod_google.ugly.js?20141218',
+				'https://www.ebsco.com/apps/global/leadtracking.ugly.js?20141218',
+				'https://www.ebsco.com/apps/global/ada/js/mod_validate.ugly.js?20141218',
+				'https://www.ebsco.com/apps/global/vendor/json2.ugly.js',
+				'https://www.ebsco.com/apps/global/ada/js/mod_frameloop.ugly.js?20141218' ]
 		},
 		libraryLength = libraryList.token.length;
 		
@@ -93,7 +93,7 @@ var EIS = (function (pub) {
 
 		for ( ; i < libraryLength; i++ ) {
 			if ( libraryList.token[i] === jsLibrary ) {
-				if ( !(eval('window.' + libraryList.token[i])) ) {
+				if ( !( window[libraryList.token[i]] ) ) {
 					pub.loadScript( libraryList.source[i], callback );
 				} else {
 					if (callback && typeof(callback) === 'function') {

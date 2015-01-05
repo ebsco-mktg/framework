@@ -1,11 +1,22 @@
-/*
- * 
- */
 
-var NAV = (function( pub ) {
 
-	// private functions
+
+function findPos(obj) {
+	var currLeft = currTop = 0;
 	
+	if (obj.offsetParent) {
+		do {
+			currLeft += obj.offsetLeft;
+			currTop += obj.offsetTop;
+		} while (obj = obj.offsetParent);
+	}
+	
+	return[currLeft, currTop];
+}
+
+EIS.loadOnce( 'jQuery', function() {
+	
+
 	/**
 	 * pass in jQuery obj of list items
 	 * if any list item is wrapped, add class 'wrap-block'
@@ -229,7 +240,143 @@ var NAV = (function( pub ) {
 		
 	}
 	
+	$('.lt-ie9 #mobile-menu').css('display','none');
+	
+	// determine if browser supports css-transitions (using modernizr)
+	var noCssTransitions = $('.no-csstransitions').length > 0,
+		ieFallback = $('.lt-ie9').length === 1,
+		ie9Fallback = $('.lt-ie10').length === 1,
+		
+		// trigger wrapping styles only if mobile menu is not open
+		mobileState = getMobileState(),
+		
+		// check the main nav for adding any wrapping classes
+		isWrapped,
+		hasActive = $('.top-nav .drop').hasClass('active'),
+		
+		// timeout object used on hover states
+		ticker,
+	
+		/*
+		 * state object - contains properties of navigation current state
+		 * 
+		 * 		hoverIdx 		: 	the index of the current item sending a mouseenter event (hover); -1 indicates none
+		 * 		mouseoutIdx 	:	the index of the current item sending a mouseout event; -1 indicates none
+		 * 		openedIdx 		:	the index of the sub menu currently in an open state; -1 indicates none
+		 * 		activeIdx 		: 	the index of a sub menu that should remain open for the current page; -1 indicates none
+		 * 		slideDown 		:	the speed (ms) in which sub menus slide down (show)
+		 * 		slideUp 		:	the speed (ms) in which sub menus slide up (hide)
+		 * 		hoverDelay 		: 	the amount of time (ms) before the hover animation fires, if no cancelling events occur befor it expires
+		 * 		mouseoutDelay 	: 	the amount of time (ms) before the mouseout animation fires, if no cancelling events occur before it expires
+		 */
+		state = {
+			hoverIdx : -1,
+			mouseoutIdx : -1,
+			openedIdx : -1,
+			activeIdx : -1,
+			slideDown : 500,
+			slideUp : 500,
+			hoverDelay : 400,
+			mouseoutDelay : 400
+		},
+		$dropElems = $('.top-nav > li');
 
+	//window.console && console.log('ieFallback: ', ieFallback );	
+	//window.console && console.log('hasActive: ', hasActive );
+	//window.console && console.log('!mobileState: ', !mobileState );
+		
+	if (!mobileState) {
+		isWrapped = checkRow();
+		//window.console && console.log('isWrapped: ', isWrapped );
+	}
+	
+	/*
+	 * IE fallbacks - html.no-csstransitions
+	 */
+	if ( ieFallback  &&  !mobileState ) {
+		//window.console && console.log('noCssTransitions  &&  !mobileState: ', noCssTransitions  &&  !mobileState );
+		setupFallbacks();
+	} else if ( ie9Fallback  &&  !mobileState ) {
+		//window.console && console.log('setupFallbacks');
+		
+		var navSpacerElem = document.createElement('div'),
+			$elemsWithPointer = $('#siteNav').find('.drop > a');
+		
+		// we need to re-create the spacer element
+		navSpacerElem.className = 'navSpacer';
+		$elemsWithPointer.append(navSpacerElem);
+	}
+	
+	//setupFallbacks();
+	
+	
+	if (hasActive && !mobileState) {
+		var $activeItem = $('.top-nav .drop.active'),
+			isSubWrapped = checkRow( $activeItem.find('.sub-menu li') ),
+			activeIdx = $dropElems.index($activeItem);
+		
+		state.openedIdx = activeIdx;
+		state.activeIdx = activeIdx;
+		
+		// isSubWrapped contains the count of items with wrapped classes added
+		if ( isSubWrapped > 0 ) {
+			var thisSpacer = $activeItem.find('a');
+			thisSpacer.addClass('double-space');
+		}
+		
+		// no-csstransition fallbacks
+		if ( ie9Fallback ) {
+			//window.console && console.log ('IE Fallback...');
+			hoverFallbacks( $activeItem, 'mouseover' );
+		}
+			
+	}
+	
+	// on resize reset wrapping classes and then check the main nav for adding wrapping classes
+	/*
+	var winWidth = $(window).width(),
+	    winHeight = $(window).height();
+	
+
+	$(window).resize(function(){
+
+
+	    var onResize = function() {
+	        //The method which alter some css properties triggers 
+	        //window.resize again and it ends in an infinite loop
+			//window.console && console.log('resize...');
+			
+			mobileState = getMobileState();
+			if ( !mobileState ) {
+				resetRow();
+				isWrapped = checkRow();
+				if (hasActive) {
+					$dropElems.eq($dropElems.index(activeIdx)).addClass('active');
+				}
+			} else {
+				if (hasActive) {
+					$('.top-nav .drop.active').removeClass('active').find('.sub-menu').removeAttr('style');
+				}
+			}
+	    };
+	
+	    //New height and width
+	    var winNewWidth = $(window).width(),
+	        winNewHeight = $(window).height();
+	
+	    // compare the new height and width with old one
+	    if(winWidth!=winNewWidth || winHeight!=winNewHeight)
+	    {
+	        window.clearTimeout(resizeTimeout);
+	        var resizeTimeout = window.setTimeout(onResize, 10);
+	    }
+	    //Update the width and height
+	    winWidth = winNewWidth;
+	    winHeight = winNewHeight;
+
+
+	});
+	*/
 	
 	function resizing() {
 		// window.console && console.log('resize...');
@@ -249,275 +396,122 @@ var NAV = (function( pub ) {
 		}
 	}
 	
-
-	
-	// our init method will bind an update function (appending custom input values to the notes field) whenever someone clicks submit on the rsvp form
-	pub.init = function( ) {
-		
-		EIS.loadOnce( 'jQuery', function() {
-
-			$('.lt-ie9 #mobile-menu').css('display','none');
-			
-			// determine if browser supports css-transitions (using modernizr)
-			var noCssTransitions = $('.no-csstransitions').length > 0,
-				ieFallback = $('.lt-ie9').length === 1,
-				ie9Fallback = $('.lt-ie10').length === 1,
-				
-				// trigger wrapping styles only if mobile menu is not open
-				mobileState = getMobileState(),
-				
-				// check the main nav for adding any wrapping classes
-				isWrapped,
-				hasActive = $('.top-nav .drop').hasClass('active'),
-				
-				// timeout object used on hover states
-				ticker,
-			
-				/*
-				 * state object - contains properties of navigation current state
-				 * 
-				 * 		hoverIdx 		: 	the index of the current item sending a mouseenter event (hover); -1 indicates none
-				 * 		mouseoutIdx 	:	the index of the current item sending a mouseout event; -1 indicates none
-				 * 		openedIdx 		:	the index of the sub menu currently in an open state; -1 indicates none
-				 * 		activeIdx 		: 	the index of a sub menu that should remain open for the current page; -1 indicates none
-				 * 		slideDown 		:	the speed (ms) in which sub menus slide down (show)
-				 * 		slideUp 		:	the speed (ms) in which sub menus slide up (hide)
-				 * 		hoverDelay 		: 	the amount of time (ms) before the hover animation fires, if no cancelling events occur befor it expires
-				 * 		mouseoutDelay 	: 	the amount of time (ms) before the mouseout animation fires, if no cancelling events occur before it expires
-				 */
-				state = {
-					hoverIdx : -1,
-					mouseoutIdx : -1,
-					openedIdx : -1,
-					activeIdx : -1,
-					slideDown : 500,
-					slideUp : 500,
-					hoverDelay : 400,
-					mouseoutDelay : 400
-				},
-				$dropElems = $('.top-nav > li');
-		
-			//window.console && console.log('ieFallback: ', ieFallback );	
-			//window.console && console.log('hasActive: ', hasActive );
-			//window.console && console.log('!mobileState: ', !mobileState );
-				
-			if (!mobileState) {
-				isWrapped = checkRow();
-				//window.console && console.log('isWrapped: ', isWrapped );
-			}
-			
-			/*
-			 * IE fallbacks - html.no-csstransitions
-			 */
-			if ( ieFallback  &&  !mobileState ) {
-				//window.console && console.log('noCssTransitions  &&  !mobileState: ', noCssTransitions  &&  !mobileState );
-				setupFallbacks();
-			} else if ( ie9Fallback  &&  !mobileState ) {
-				//window.console && console.log('setupFallbacks');
-				
-				var navSpacerElem = document.createElement('div'),
-					$elemsWithPointer = $('#siteNav').find('.drop > a');
-				
-				// we need to re-create the spacer element
-				navSpacerElem.className = 'navSpacer';
-				$elemsWithPointer.append(navSpacerElem);
-			}
-			
-			//setupFallbacks();
-			
-			
-			if (hasActive && !mobileState) {
-				var $activeItem = $('.top-nav .drop.active'),
-					isSubWrapped = checkRow( $activeItem.find('.sub-menu li') ),
-					activeIdx = $dropElems.index($activeItem);
-				
-				state.openedIdx = activeIdx;
-				state.activeIdx = activeIdx;
-				
-				// isSubWrapped contains the count of items with wrapped classes added
-				if ( isSubWrapped > 0 ) {
-					var thisSpacer = $activeItem.find('a');
-					thisSpacer.addClass('double-space');
-				}
-				
-				// no-csstransition fallbacks
-				if ( ie9Fallback ) {
-					//window.console && console.log ('IE Fallback...');
-					hoverFallbacks( $activeItem, 'mouseover' );
-				}
-					
-			}
-			
-			// on resize reset wrapping classes and then check the main nav for adding wrapping classes
-			/*
-			var winWidth = $(window).width(),
-			    winHeight = $(window).height();
-			
-		
-			$(window).resize(function(){
-		
-		
-			    var onResize = function() {
-			        //The method which alter some css properties triggers 
-			        //window.resize again and it ends in an infinite loop
-					//window.console && console.log('resize...');
-					
-					mobileState = getMobileState();
-					if ( !mobileState ) {
-						resetRow();
-						isWrapped = checkRow();
-						if (hasActive) {
-							$dropElems.eq($dropElems.index(activeIdx)).addClass('active');
-						}
-					} else {
-						if (hasActive) {
-							$('.top-nav .drop.active').removeClass('active').find('.sub-menu').removeAttr('style');
-						}
-					}
-			    };
-			
-			    //New height and width
-			    var winNewWidth = $(window).width(),
-			        winNewHeight = $(window).height();
-			
-			    // compare the new height and width with old one
-			    if(winWidth!=winNewWidth || winHeight!=winNewHeight)
-			    {
-			        window.clearTimeout(resizeTimeout);
-			        var resizeTimeout = window.setTimeout(onResize, 10);
-			    }
-			    //Update the width and height
-			    winWidth = winNewWidth;
-			    winHeight = winNewHeight;
-		
-		
-			});
-			*/
-
-			window.onresize = function() {
-				resizing();
-			};
-			
-			$('#siteNav').on('click','#mobile-menu', function() {
-				$(this).toggleClass('isOpen');
-			});
-		
-		
-			$dropElems.hover( function() {
-				
-				var $thisSubMenu = $(this).find('.sub-menu li'),
-					isSubWrapped = 0,
-					$this = $(this);
-					
-				state.hoverIdx = $dropElems.index($this);
-				
-				if (!mobileState) {
-					
-					// if we trigger hover with an active mouseout, cancel that mouseout
-					clearTimeout(ticker);
-					ticker = null;
-					state.mouseoutIdx = -1;
-					
-					if ( state.openedIdx === -1 ) {
-						openMenu($this);
-					} else {
-					
-						ticker = setTimeout( function() {
-							
-							var thisIdx = $dropElems.index($this);
-							
-							if ( state.hoverIdx === thisIdx ) {
-								
-								// if something is open other than what we are about to open, close it first
-								// this is usually triggered when someone whips across the nav after a sub is open
-								if ( thisIdx !== state.openedIdx ) {
-									closeMenu( $dropElems.eq(state.openedIdx), function() {
-		
-										// send callback fn to handle suppressing active sub's triangle pointer
-										if ( hasActive ) {
-											$dropElems.eq( $dropElems.index($activeItem) ).addClass('active');
-										}
-									});
-								}
-								
-								if ( state.openedIdx !== thisIdx ) {
-		
-									// open the sub menu (and perform fallbacks, state setting, etc.)
-									openMenu($this, function() {
-		
-										// send callback fn to handle suppressing active sub's triangle pointer
-										if ( hasActive && ( state.activeIdx !== thisIdx ) ) {
-											$dropElems.eq( $dropElems.index($activeItem) ).removeClass('active');
-										}
-									});
-									
-								}
-								
-								ticker = null;
-								clearTimeout(ticker);
-								
-							}
-							
-						}, state.hoverDelay);
-					
-					}
-		
-				}
-				
-			// remove classes on mouse out
-			}, function() {
-				var $thisSubMenu = $(this).find('.sub-menu li'),
-					$thisSpacer = $(this).find('a'),
-					$this = $(this),
-					thisIdx = $dropElems.index($this);
-				
-				state.mouseoutIdx = thisIdx;
-		
-				if ( !mobileState ) {
-					
-					ticker = setTimeout( function() {
-					
-						if ( ( state.mouseoutIdx === state.openedIdx ) ) {
-							
-							if ( thisIdx !== state.activeIdx ) {
-								closeMenu($this);
-								
-								// if there is an active sub menu set, display that one...
-								if (hasActive) {
-									var $thisActive = $dropElems.eq( $dropElems.index($activeItem) );
-									
-									openMenu($thisActive, function() {
-										$dropElems.eq( $dropElems.index($activeItem) ).addClass('active');
-									});
-			
-									ticker = null;
-									clearTimeout(ticker);
-								}
-								
-							}
-							
-						}
-					
-					}, state.mouseoutDelay);
-					
-				}
-			});
-			
-			$dropElems.find('*').on('focus', function() {
-				$(this).closest('.drop').trigger('mouseenter');
-			});
-			
-			$dropElems.find('*').on('blur', function() {
-				$(this).trigger('mouseoff');
-			});
-
-			
-		});
+	window.onresize = function() {
+		resizing();
 	};
-
-	return pub;
 	
-}(NAV || {}));
+	$('#siteNav').on('click','#mobile-menu', function() {
+		$(this).toggleClass('isOpen');
+	});
 
-NAV.init();
+
+	$dropElems.hover( function() {
+		
+		var $thisSubMenu = $(this).find('.sub-menu li'),
+			isSubWrapped = 0,
+			$this = $(this);
+			
+		state.hoverIdx = $dropElems.index($this);
+		
+		if (!mobileState) {
+			
+			// if we trigger hover with an active mouseout, cancel that mouseout
+			clearTimeout(ticker);
+			ticker = null;
+			state.mouseoutIdx = -1;
+			
+			if ( state.openedIdx === -1 ) {
+				openMenu($this);
+			} else {
+			
+				ticker = setTimeout( function() {
+					
+					var thisIdx = $dropElems.index($this);
+					
+					if ( state.hoverIdx === thisIdx ) {
+						
+						// if something is open other than what we are about to open, close it first
+						// this is usually triggered when someone whips across the nav after a sub is open
+						if ( thisIdx !== state.openedIdx ) {
+							closeMenu( $dropElems.eq(state.openedIdx), function() {
+
+								// send callback fn to handle suppressing active sub's triangle pointer
+								if ( hasActive ) {
+									$dropElems.eq( $dropElems.index($activeItem) ).addClass('active');
+								}
+							});
+						}
+						
+						if ( state.openedIdx !== thisIdx ) {
+
+							// open the sub menu (and perform fallbacks, state setting, etc.)
+							openMenu($this, function() {
+
+								// send callback fn to handle suppressing active sub's triangle pointer
+								if ( hasActive && ( state.activeIdx !== thisIdx ) ) {
+									$dropElems.eq( $dropElems.index($activeItem) ).removeClass('active');
+								}
+							});
+							
+						}
+						
+						ticker = null;
+						clearTimeout(ticker);
+						
+					}
+					
+				}, state.hoverDelay);
+			
+			}
+
+		}
+		
+	// remove classes on mouse out
+	}, function() {
+		var $thisSubMenu = $(this).find('.sub-menu li'),
+			$thisSpacer = $(this).find('a'),
+			$this = $(this),
+			thisIdx = $dropElems.index($this);
+		
+		state.mouseoutIdx = thisIdx;
+
+		if ( !mobileState ) {
+			
+			ticker = setTimeout( function() {
+			
+				if ( ( state.mouseoutIdx === state.openedIdx ) ) {
+					
+					if ( thisIdx !== state.activeIdx ) {
+						closeMenu($this);
+						
+						// if there is an active sub menu set, display that one...
+						if (hasActive) {
+							var $thisActive = $dropElems.eq( $dropElems.index($activeItem) );
+							
+							openMenu($thisActive, function() {
+								$dropElems.eq( $dropElems.index($activeItem) ).addClass('active');
+							});
+	
+							ticker = null;
+							clearTimeout(ticker);
+						}
+						
+					}
+					
+				}
+			
+			}, state.mouseoutDelay);
+			
+		}
+	});
+	
+	$dropElems.find('*').on('focus', function() {
+		$(this).closest('.drop').trigger('mouseenter');
+	});
+	
+	$dropElems.find('*').on('blur', function() {
+		$(this).trigger('mouseoff');
+	});
+
+});
 
